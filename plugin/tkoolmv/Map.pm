@@ -9,6 +9,8 @@ sub new {
   return bless $self,$class;
 }
 
+my $flag = 0;
+
 sub paragraph {
   my $self = shift;
   my $wiki = shift;
@@ -18,18 +20,18 @@ sub paragraph {
     return &Util::inline_error("ファイルが指定されていません。");
   }
 
-  my $ret  = "";
-
-  $ret .= &script_tags();
-  #$wiki->add_head_info("<script>alert('test');</script>");
-
   my $page = $wiki->get_CGI()->param("page");
   my $filename = $wiki->config('attach_dir')."/".&Util::url_encode($page).".".&Util::url_encode($file);
-  if(-e $filename) {
-    $ret .= $filename;
+  unless(-e $filename) {
+    return &Util::inline_error("ファイルがありません。" . $file);
   }
 
-  $ret .= "<h6>tkoolmv map plugin</h6>";
+  if($flag == 1) {
+    return &Util::inline_error("表示できるのは、１ページに１つです。");
+  }
+  $flag = 1;
+
+  my $ret  = &script_tags();
 
   my $json_url_system   = &_create_tkool_data_url($wiki, 'System', 'System.json');
   my $json_url_tilesets = &_create_tkool_data_url($wiki, 'Tilesets', 'Tilesets.json');
@@ -45,6 +47,7 @@ window.onload = function () {
 };
 </script>
 <canvas id="GameCanvas"></canvas>
+<canvas id="ErrorPrinter"></canvas>
 JS
   return $ret;
 }
