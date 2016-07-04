@@ -26,22 +26,34 @@ WikiPlugin.tkoolMap = function(databaseFiles) {
     if (!WikiPlugin.isDatabaseLoaded(databaseFiles)) {
       setTimeout(checkLoaded,1000);
     } else {
-      SceneManager.preferableRendererType = function() {return "canvas"};
-      $dataCommonEvents = [];
-      $dataTroops = [];
+
+      SceneManager.preferableRendererType = function() {
+        return "canvas";
+      };
       Scene_Map.prototype.create = function() {
         Scene_Base.prototype.create.call(this);
         this._transfer = $gamePlayer.isTransferring();
       };
+
+      $dataCommonEvents = [];
+      $dataTroops = [];
       $dataSystem.partyMembers = [];
+
       DataManager.createGameObjects();
-      //DataManager.selectSavefileForNewGame();
       $gameParty.setupStartingMembers();
       $gamePlayer.reserveTransfer(-1, 8, 6);
       $gamePlayer.setTransparent(true);
       $gamePlayer.setThrough(true);
+      $gamePlayer.setMoveSpeed(5);
       $gameSystem.disableMenu();
+
+      SceneManager._screenWidth       = 816;
+      SceneManager._screenHeight      = 624;
+
       SceneManager.run(Scene_Map);
+      //Graphics._stretchEnabled = false;
+      //Graphics._scale = 2;
+      //Graphics._updateAllElements();
     }
   };
   checkLoaded();
@@ -64,9 +76,6 @@ WikiPlugin.tkoolMap = function(databaseFiles) {
  */
 Graphics._createCanvas = function() {
     this._canvas = document.getElementById("GameCanvas");
-    //this._canvas.id = 'GameCanvas';
-    //this._updateCanvas();
-    //document.body.appendChild(this._canvas);
 };
 
 /**
@@ -78,7 +87,6 @@ Graphics._updateCanvas = function() {
     this._canvas.width = this._width;
     this._canvas.height = this._height;
     this._canvas.style.zIndex = 1;
-    //this._centerElement(this._canvas);
 };
 
 /**
@@ -103,7 +111,6 @@ Graphics._updateErrorPrinter = function() {
     this._errorPrinter.style.textShadow = '1px 1px 3px #000';
     this._errorPrinter.style.fontSize = '20px';
     this._errorPrinter.style.zIndex = 99;
-    //this._centerElement(this._errorPrinter);
 };
 
 /**
@@ -125,10 +132,9 @@ Graphics._createVideo = function() {
  * @private
  */
 Graphics._updateVideo = function() {
-    this._video.width = this._width;
+    this._video.width  = this._width;
     this._video.height = this._height;
     this._video.style.zIndex = 2;
-    //this._centerElement(this._video);
     this._overwrapElement(this._video);
 };
 
@@ -140,17 +146,16 @@ Graphics._updateVideo = function() {
  * @private
  */
 Graphics._overwrapElement = function(element) {
-    var width = element.width * this._realScale;
+    var width  = element.width  * this._realScale;
     var height = element.height * this._realScale;
-    element.style.position = 'absolute';
-    //element.style.margin = 'auto';
     var box = getDOMObjectPosition(this._canvas);
-    element.style.top = box.top;
-    element.style.left = box.left;
-    element.style.right = 0;
-    element.style.bottom = 0;
-    element.style.width = width + 'px';
-    element.style.height = height + 'px';
+    element.style.position = 'absolute';
+    element.style.top      = box.top;
+    element.style.left     = box.left;
+    element.style.right    = 0;
+    element.style.bottom   = 0;
+    element.style.width    = width + 'px';
+    element.style.height   = height + 'px';
 };
 
 
@@ -175,7 +180,6 @@ Graphics._updateUpperCanvas = function() {
     this._upperCanvas.width = this._width;
     this._upperCanvas.height = this._height;
     this._upperCanvas.style.zIndex = 3;
-    //this._centerElement(this._upperCanvas);
     this._overwrapElement(this._upperCanvas);
 };
 
@@ -188,7 +192,6 @@ Graphics._updateUpperCanvas = function() {
 Graphics._createModeBox = function() {
     var box = document.createElement('div');
     box.id = 'modeTextBack';
-    //box.style.position = 'absolute';
     box.style.left = '5px';
     box.style.top = '5px';
     box.style.width = '119px';
@@ -199,7 +202,6 @@ Graphics._createModeBox = function() {
 
     var text = document.createElement('div');
     text.id = 'modeText';
-    //text.style.position = 'absolute';
     text.style.left = '0px';
     text.style.top = '41px';
     text.style.width = '119px';
@@ -216,19 +218,19 @@ Graphics._createModeBox = function() {
     this._modeBox = box;
 };
 
-var getDOMObjectPosition = function(obj, stopObj) {
-  var info = {
-    left: 0,
-    top: 0,
-    width: obj.width ? obj.width : obj.offsetWidth,
-    height: obj.height ? obj.height : obj.offsetHeight
+var getDOMObjectPosition = function(obj, stop) {
+  var box = {
+    left   : 0,
+    top    : 0,
+    width  : obj.width  ? obj.width  : obj.offsetWidth,
+    height : obj.height ? obj.height : obj.offsetHeight
   };
-  while (obj && obj != stopObj) {
-    info.left += obj.offsetLeft;
-    info.left += obj.style.borderLeftWidth ? parseInt(obj.style.borderLeftWidth, 10) : 0;
-    info.top += obj.offsetTop;
-    info.top += obj.style.borderTopWidth ? parseInt(obj.style.borderTopWidth, 10) : 0;
+  while (obj && obj != stop) {
+    box.left += obj.offsetLeft;
+    box.left += obj.style.borderLeftWidth ? parseInt(obj.style.borderLeftWidth, 10) : 0;
+    box.top  += obj.offsetTop;
+    box.top  += obj.style.borderTopWidth  ? parseInt(obj.style.borderTopWidth , 10) : 0;
     obj = obj.offsetParent;
   }
-  return info;
+  return box;
 };

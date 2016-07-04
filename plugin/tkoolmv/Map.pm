@@ -31,12 +31,12 @@ sub paragraph {
   }
   $flag = 1;
 
-  my $ret  = &script_tags();
+  my $ret  = &_script_tags();
 
   my $json_url_system   = &_create_tkool_data_url($wiki, 'System', 'System.json');
   my $json_url_tilesets = &_create_tkool_data_url($wiki, 'Tilesets', 'Tilesets.json');
   my $json_url_map      = &_create_tkool_data_url($wiki, $page, $file);
-  $ret .= <<"JS";
+  $ret .= <<"HTML";
 <script type="text/javascript">
 window.onload = function () {
   WikiPlugin.tkoolMap([
@@ -48,7 +48,7 @@ window.onload = function () {
 </script>
 <canvas id="GameCanvas"></canvas>
 <canvas id="ErrorPrinter"></canvas>
-JS
+HTML
   return $ret;
 }
 
@@ -60,8 +60,8 @@ sub _create_tkool_data_url {
   return "../".$wiki->create_url({ action=>"ATTACH", page=>$page, file=>$file });
 }
 
-sub script_tags {
-  return <<"TAGS";
+sub _script_tags {
+  return <<"HTML";
         <script type="text/javascript" src="js/libs/pixi.js"></script>
         <script type="text/javascript" src="js/libs/fpsmeter.js"></script>
         <script type="text/javascript" src="js/libs/lz-string.js"></script>
@@ -74,7 +74,7 @@ sub script_tags {
         <script type="text/javascript" src="js/plugins.js"></script>
 
         <script type="text/javascript" src="js/wiki_plugin.js"></script>
-TAGS
+HTML
 }
 
 1;
