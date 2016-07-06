@@ -26,7 +26,9 @@ WikiPlugin.tkoolMap = function(databaseFiles) {
     if (!WikiPlugin.isDatabaseLoaded(databaseFiles)) {
       setTimeout(checkLoaded,1000);
     } else {
-
+      Game_Player.prototype.canStartLocalEvents = function() {
+        return false;
+      };
       SceneManager.preferableRendererType = function() {
         return "canvas";
       };
@@ -38,6 +40,8 @@ WikiPlugin.tkoolMap = function(databaseFiles) {
       $dataCommonEvents = [];
       $dataTroops = [];
       $dataSystem.partyMembers = [];
+      $dataMap.bgm.name = ""; // 音楽なしに
+      $dataMap.bgs.name = ""; // 環境音なしに
 
       DataManager.createGameObjects();
       $gameParty.setupStartingMembers();
