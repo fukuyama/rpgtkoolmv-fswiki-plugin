@@ -47,7 +47,8 @@ window.onload = function () {
 };
 </script>
 <canvas id="GameCanvas"></canvas>
-<canvas id="ErrorPrinter"></canvas>
+<div id="GameEvents">
+</div>
 HTML
   return $ret;
 }

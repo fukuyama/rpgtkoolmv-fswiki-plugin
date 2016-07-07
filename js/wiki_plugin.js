@@ -37,19 +37,19 @@ WikiPlugin.tkoolMap = function(databaseFiles) {
         this._transfer = $gamePlayer.isTransferring();
       };
 
-      $dataCommonEvents = [];
-      $dataTroops = [];
-      $dataSystem.partyMembers = [];
-      $dataMap.bgm.name = ""; // 音楽なしに
-      $dataMap.bgs.name = ""; // 環境音なしに
+      $dataCommonEvents = [];        // コモンイベントなし
+      $dataTroops = [];              // トループなし
+      $dataSystem.partyMembers = []; // パーティメンバーなし
+      $dataMap.bgm.name = "";        // 音楽なし
+      $dataMap.bgs.name = "";        // 環境音なし
 
       DataManager.createGameObjects();
       $gameParty.setupStartingMembers();
       $gamePlayer.reserveTransfer(-1, 8, 6);
-      $gamePlayer.setTransparent(true);
-      $gamePlayer.setThrough(true);
-      $gamePlayer.setMoveSpeed(5);
-      $gameSystem.disableMenu();
+      $gamePlayer.setTransparent(true);     // 透明
+      $gamePlayer.setThrough(true);         // すり抜け
+      $gamePlayer.setMoveSpeed(5);          // スピード
+      $gameSystem.disableMenu();            // メニュー不可
 
       SceneManager._screenWidth       = 816;
       SceneManager._screenHeight      = 624;
@@ -99,8 +99,11 @@ Graphics._updateCanvas = function() {
  * @private
  */
 Graphics._createErrorPrinter = function() {
-    this._errorPrinter = document.getElementById("ErrorPrinter");
+    this._canvas = document.getElementById("GameCanvas");
+    this._errorPrinter = document.createElement('p');
+    this._errorPrinter.id = 'ErrorPrinter';
     this._updateErrorPrinter();
+    document.body.appendChild(this._errorPrinter);
 };
 
 /**
@@ -115,6 +118,7 @@ Graphics._updateErrorPrinter = function() {
     this._errorPrinter.style.textShadow = '1px 1px 3px #000';
     this._errorPrinter.style.fontSize = '20px';
     this._errorPrinter.style.zIndex = 99;
+    this._overwrapElement(this._errorPrinter);
 };
 
 /**
