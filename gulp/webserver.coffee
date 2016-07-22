@@ -6,9 +6,8 @@ webserver = require 'gulp-webserver'
 gulp.task 'webserver', ['webserver:build'], =>
   {
     destDir
-    publicPath
-  } = config
-  gulp.src destDir + publicPath
+  } = config.webserver
+  gulp.src destDir
     .pipe(
       webserver {
         host       : 'localhost'
@@ -20,13 +19,10 @@ gulp.task 'webserver', ['webserver:build'], =>
 gulp.task 'webserver:build', =>
   {
     files
-  } = config.webserver
-  {
     destDir
-    publicPath
-  } = config
+  } = config.webserver
   gulp.src files
-    .pipe gulp.dest destDir + publicPath
+    .pipe gulp.dest destDir
 
 gulp.task 'webserver:watch', =>
   {

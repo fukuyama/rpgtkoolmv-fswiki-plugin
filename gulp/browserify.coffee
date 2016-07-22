@@ -12,8 +12,8 @@ buffer     = require 'vinyl-buffer'
 gulp.task 'browserify', =>
   {
     files
-    destDir
     outputFile
+    destDir
   } = config.jsx
   browserify files, { debug : true }
     .transform babelify, { presets : ['es2015','react'] }

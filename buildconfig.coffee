@@ -1,28 +1,37 @@
 
-destDir = 'dest/'
-
-publicPath = 'public/'
-jsPath     = 'js/'
+path =
+  dest    : 'dest/'
+  public  : 'public/'
+  js      : 'js/'
+  release : 'release/'
+  plugin  : 'plugin/'
 
 config = {
-  destDir    : destDir
-  cleanDir   : destDir
-  publicPath : publicPath
-  jsPath     : jsPath
+
+  clean :
+    dir : path.dest
 
   jsx :
     files      : './src/main/jsx/app.jsx'
     watchFiles : './src/main/jsx/**/*.jsx'
-    destDir    : destDir + publicPath + jsPath
+    destDir    : path.dest + path.public + path.js
     outputFile : 'eventRender.js'
 
   webserver :
-    files     : './src/main/public/**'
+    files   : './src/main/public/**'
+    destDir : path.dest + path.public
+
+  release :
+    files : [
+      path.dest + path.public + path.plugin + '**'
+      path.dest + path.public + path.js     + '**'
+    ]
+    options :
+      base : path.dest + path.public
+    destDir : path.dest + path.release
 
   deploy :
-    files : [
-      destDir + 'release/**'
-    ]
+    files : path.dest + path.release + '**'
     scp :
       host       : 'localhost'
       port       : 2222
