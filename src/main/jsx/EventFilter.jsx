@@ -15,7 +15,8 @@ export default class EventFilter extends React.Component {
     this.props.onChangeFilter({
       filter : (obj) => {
         if (name.match(/^[0-9]+$/)) {
-          return obj.id == parseInt(name);
+          const n = parseInt(name);
+          return obj.id == n || obj.x == n || obj.y == n;
         }
         return obj.name.match('.*'+name+'.*');
       }

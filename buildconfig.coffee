@@ -6,8 +6,7 @@ path =
   release : 'release/'
   plugin  : 'plugin/'
 
-config = {
-
+config =
   clean :
     dir : path.dest
 
@@ -38,7 +37,5 @@ config = {
       username   : 'vagrant'
       privateKey : require('fs').readFileSync　'../.ssh/id_rsa'
       dest       : '/tmp/test/'
-
-}
 
 module.exports = config

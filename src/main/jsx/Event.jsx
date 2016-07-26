@@ -15,6 +15,7 @@ export default function Event({ event }) {
         <tr>
         <td>{pad(event.id,3)}</td>
         <td>{event.name}</td>
+        <td>({event.x},{event.y})</td>
         </tr>
       </table>
     </div>
