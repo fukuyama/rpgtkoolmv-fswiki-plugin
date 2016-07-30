@@ -1,0 +1,9 @@
+event-list
+  div(each='{ event in events }')
+    table
+      tr
+        td {pad(event.id,3)}
+        td {event.name}
+        td {event.x},{event.y}
+
+  script(src='./event-list.coffee')

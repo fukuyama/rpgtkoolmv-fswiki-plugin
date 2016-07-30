@@ -1,0 +1,21 @@
+<event-data>
+
+  <table>
+    <tr>
+    <td>{pad(id,3)}</td>
+    <td>{name}</td>
+    <td>({x},{y})</td>
+    </tr>
+  </table>
+
+  <script>
+    function pad (n, len) {
+      var s = n.toString();
+      while (s.length < len) {
+        s = '0' + s;
+      }
+      return s;
+    }
+  </script>
+
+</event-data>

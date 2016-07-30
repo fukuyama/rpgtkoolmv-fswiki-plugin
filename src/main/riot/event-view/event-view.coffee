@@ -1,0 +1,1 @@
+# event-view.coffee

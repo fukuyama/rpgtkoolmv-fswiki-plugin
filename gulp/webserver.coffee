@@ -1,13 +1,14 @@
 config = require '../buildconfig.coffee'
+
 gulp   = require 'gulp'
 
 webserver = require 'gulp-webserver'
 
-gulp.task 'webserver', ['webserver:build'], =>
+gulp.task 'webserver:run', ['build'], =>
   {
-    destDir
+    publicDir
   } = config.webserver
-  gulp.src destDir
+  gulp.src publicDir
     .pipe(
       webserver {
         host       : 'localhost'
@@ -19,15 +20,13 @@ gulp.task 'webserver', ['webserver:build'], =>
 gulp.task 'webserver:build', =>
   {
     files
-    destDir
+    publicDir
   } = config.webserver
   gulp.src files
-    .pipe gulp.dest destDir
+    .pipe gulp.dest(publicDir)
 
 gulp.task 'webserver:watch', =>
   {
     files
   } = config.webserver
-  gulp.watch files, [
-    'webserver:build'
-  ]
+  gulp.watch files, ['webserver:build']

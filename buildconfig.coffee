@@ -1,41 +1,34 @@
 
-path =
-  dest    : 'dest/'
-  public  : 'public/'
-  js      : 'js/'
-  release : 'release/'
-  plugin  : 'plugin/'
-
 config =
-  clean :
-    dir : path.dest
-
-  jsx :
-    files      : './src/main/jsx/app.jsx'
-    watchFiles : './src/main/jsx/**/*.jsx'
-    destDir    : path.dest + path.public + path.js
-    outputFile : 'eventRender.js'
+  riot :
+    entry      : './src/main/riot/main.js'
+    watchFiles : './src/main/riot/**'
+    destDir    : './dest/public/js/'
+    outputFile : 'bundle.js'
 
   webserver :
-    files   : './src/main/public/**'
-    destDir : path.dest + path.public
+    files     : './src/main/public/**'
+    publicDir : './dest/public/'
 
   release :
     files : [
-      path.dest + path.public + path.plugin + '**'
-      path.dest + path.public + path.js     + '**'
+      './dest/public/plugin/**'
+      './dest/public/js/**'
     ]
     options :
-      base : path.dest + path.public
-    destDir : path.dest + path.release
+      base : './dest/public/'
+    destDir : './dest/release/'
 
   deploy :
-    files : path.dest + path.release + '**'
+    files : './dest/release/**'
     scp :
       host       : 'localhost'
       port       : 2222
       username   : 'vagrant'
       privateKey : require('fs').readFileSync　'../.ssh/id_rsa'
       dest       : '/tmp/test/'
+
+  clean :
+    dir : './dest/'
 
 module.exports = config
