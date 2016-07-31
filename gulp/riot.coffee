@@ -17,7 +17,7 @@ gulp.task 'riot:build', =>
     destDir
     outputFile
   } = config.riot
-  handleError = (e) =>
+  handleError = (e) ->
     gutil.log(e)
     @emit 'end'
   browserify entry,
