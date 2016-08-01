@@ -19,14 +19,7 @@ config =
       base : './dest/public/'
     destDir : './dest/release/'
 
-  deploy :
-    files : './dest/release/**'
-    scp :
-      host       : 'localhost'
-      port       : 2222
-      username   : 'vagrant'
-      privateKey : require('fs').readFileSync　'../.ssh/id_rsa'
-      dest       : '/tmp/test/'
+  deploy : require './deployconfig.coffee'
 
   clean :
     dir : './dest/'

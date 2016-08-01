@@ -2,9 +2,23 @@
 <html>
   <head lang="ja">
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
   </head>
   <body>
     <event-view></event-view>
     <script type="text/javascript" src="js/bundle.js"></script>
+    <script type="text/javascript">
+    $.ajax({
+      url      : 'data/Map001.json',
+      dataType : 'json',
+      cache    : false,
+      success  : function (data) {
+        event_view.update({datamap : data})
+      },
+      error    : function (xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }
+    });
+    </script>
   </body>
 </html>

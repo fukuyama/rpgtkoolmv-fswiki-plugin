@@ -7,10 +7,10 @@
     "url": "https://github.com/fukuyama/react_template"
   },
   "scripts": {
-    "start" : "gulp",
-    "build" : "gulp build",
-    "test"  : "gulp test",
-    "clean" : "gulp clean"
+    "start": "gulp",
+    "build": "gulp build",
+    "test": "gulp test",
+    "clean": "gulp clean"
   },
   "keywords": [
     "riot.js"
@@ -22,13 +22,17 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
     "coffee-script": "^1.10.0",
+    "graceful-fs": "^4.1.5",
     "gulp": "^3.9.1",
+    "gulp-scp2": "^0.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
-    "pug": "2.0.0-alpha6",
-    "pug-loader": "^1.0.2",
+    "lodash": "^4.14.1",
+    "minimatch": "^3.0.2",
+    "pug": "2.0.0-beta4",
+    "pug-loader": "^2.1.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.4",
     "riot": "^2.5.0",

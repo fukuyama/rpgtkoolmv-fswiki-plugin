@@ -1,16 +1,7 @@
 # event-list.coffee
 
-@events = [
-  {
-    id   : 1
-    name : 'test'
-    x    : 10
-    y    : 9
-  }
-]
+@events = []
 
-@pad = (n, len) ->
-  s = n.toString()
-  while s.length < len
-    s = '0' + s
-  s
+@on 'update', ->
+  if opts.events
+    @events = opts.events.filter (o) -> o
