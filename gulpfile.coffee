@@ -18,10 +18,6 @@ gulp.task 'watch', [
   'webserver:watch'
 ]
 
-gulp.task 'webserver', [
-  'webserver:run'
-]
-
 gulp.task 'default', [
   'watch'
   'webserver'

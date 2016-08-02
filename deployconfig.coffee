@@ -1,5 +1,5 @@
-fs = require 'fs'
-gutil  = require 'gulp-util'
+fs    = require 'fs'
+gutil = require 'gulp-util'
 
 readFileSync = (filename) ->
   try
@@ -8,16 +8,20 @@ readFileSync = (filename) ->
   catch err
     ''
 
+deploy =
+  files : './dest/release/**'
+  scp :
+    host       : 'localhost'
+    port       : 2222
+    username   : 'vagrant'
+    privateKey : readFileSync　'../.ssh/id_rsa'
+    dest       : '/tmp/test/'
+
 try
-  if fs.statSync('./mydeployconfig.coffee').isFile()
-    module.exports = require './mydeployconfig.coffee'
+  for name in fs.readdirSync '.' when name.match /.+deploy.config.coffee/
+    deploy = require './' + name
+    gutil.log "Using deploy.config ./#{name}"
 catch err
   gutil.log err.message
-  module.exports =
-    files : './dest/release/**'
-    scp :
-      host       : 'localhost'
-      port       : 2222
-      username   : 'vagrant'
-      privateKey : readFileSync　'../.ssh/id_rsa'
-      dest       : '/tmp/test/'
+
+module.exports = deploy

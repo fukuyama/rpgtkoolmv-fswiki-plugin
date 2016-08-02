@@ -2,7 +2,7 @@ config = require '../buildconfig.coffee'
 gulp   = require 'gulp'
 gscp   = require 'gulp-scp2'
 
-gulp.task 'deploy', () =>
+gulp.task 'deploy', ['release'], ->
   {
     files
     scp
