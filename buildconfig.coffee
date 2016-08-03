@@ -4,7 +4,7 @@ config =
     entry      : './src/main/riot/main.js'
     watchFiles : './src/main/riot/**'
     destDir    : './dest/public/js/'
-    outputFile : 'bundle.js'
+    outputFile : 'event_view.js'
 
   webserver :
     files     : './src/main/public/**'
