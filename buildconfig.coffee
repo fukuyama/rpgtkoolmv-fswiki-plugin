@@ -19,8 +19,6 @@ config =
       base : './dest/public/'
     destDir : './dest/release/'
 
-  deploy : require './deployconfig.coffee'
-
   clean :
     dir : './dest/'
 

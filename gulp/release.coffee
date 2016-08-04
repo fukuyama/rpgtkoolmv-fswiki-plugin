@@ -1,7 +1,7 @@
 config = require '../buildconfig.coffee'
 gulp   = require 'gulp'
 
-gulp.task 'release', () =>
+gulp.task 'release', ['build'], ->
   {
     files
     options
