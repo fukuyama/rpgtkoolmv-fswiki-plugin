@@ -6,4 +6,10 @@ import './event-position/event-position.tag.jade'
 import './event-id/event-id.tag.jade'
 import './event-name/event-name.tag.jade'
 
-global.event_view = riot.mount('event-view')[0]
+global.event_view = (datamap) => {
+  riot.mount('event-view',{datamap : datamap});
+}
+
+global.event_detail = () => {
+  console.log('event detail');
+}

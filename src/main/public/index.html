@@ -13,7 +13,7 @@
       dataType : 'json',
       cache    : false,
       success  : function (data) {
-        event_view.update({datamap : data})
+        event_view(data);
       },
       error    : function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());
