@@ -1,3 +1,11 @@
 # event-view.coffee
 
-@datamap = opts.datamap
+@datamap = {}
+
+@event = undefined
+
+@on 'mount', ->
+  global.event_view = @
+
+@clickList = (e) ->
+  @event = undefined

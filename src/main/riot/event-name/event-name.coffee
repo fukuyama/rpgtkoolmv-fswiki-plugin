@@ -1,7 +1,7 @@
+# event-name.coffee
 
-@name = opts.name
+@event = {}
 
-if opts.click
-  @click = opts.click
-#else
-#  @click = event_detail
+#@on 'update', (e) ->
+#  if e?.event?
+#    @name = e.event.name

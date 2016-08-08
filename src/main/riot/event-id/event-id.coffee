@@ -6,4 +6,4 @@
     s = '0' + s
   s
 
-@eventid = opts.eventid
+@eventid = '000'
