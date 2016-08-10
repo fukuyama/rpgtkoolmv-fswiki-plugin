@@ -1,6 +1,8 @@
 event-view
   a(href='#',onclick='{ clickList }') LIST
-  event-list(show='{ event == undefined }')
+  span(show='{ event != undefined }')  &gt;
+    event-id
+  event-list(show='{ event == undefined }',events='{ datamap.events }')
   event-detail(show='{ event != undefined }')
 
   script(src='./event-view.coffee')

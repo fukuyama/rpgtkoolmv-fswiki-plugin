@@ -1,4 +1,6 @@
 event-detail
-  div
-    span detail
-    event-name(onclick='{ click }')
+  div(onclick='{ click }')
+    event-name
+    event-pages(pages='{ event.pages }')
+
+  script(src='./event-detail.coffee')

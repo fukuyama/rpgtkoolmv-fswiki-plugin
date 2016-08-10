@@ -1,11 +1,11 @@
 event-list
-  div(each='{ event in events }')
+  div(each='{ event in opts.events.filter(event_filter) }')
     table
-      tr
+      tr(onclick='{ parent.click }')
         td
           event-id
         td
-          event-name(onclick='{ parent.click }')
+          event-name
         td
           event-position
 

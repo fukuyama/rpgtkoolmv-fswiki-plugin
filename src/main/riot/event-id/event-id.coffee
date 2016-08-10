@@ -5,5 +5,3 @@
   while s.length < len
     s = '0' + s
   s
-
-@eventid = '000'
