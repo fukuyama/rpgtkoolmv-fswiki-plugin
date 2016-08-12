@@ -1,0 +1,32 @@
+breadcrumb-list
+  ul
+    li(each='{ breadcrumb in opts.breadcrumbs }')
+      a(if='{ breadcrumb == "list" }',href='#',onclick='{ clickList }') LIST
+      a(if='{ breadcrumb == "eventid" }',href='#')
+        event-id(eventid='{ parent.event.id }')
+
+  style(scoped).
+    :scope { display: block }
+    ul {
+      list-style : none;
+      margin     : .5rem 0;
+    }
+    ul li {
+      display : inline-block;
+      margin  : 0;
+    }
+    ul li a {
+      text-decoration : none;
+    }
+    ul li:last-child,
+    ul li:last-child a {
+      color          : #666;
+      pointer-events : none;
+    }
+    ul li:not(:last-child):after {
+      color   : #c5c5c5;
+      content : "/";
+      padding : 0 .4rem;
+    }
+
+  script(src='./breadcrumb-list.coffee')

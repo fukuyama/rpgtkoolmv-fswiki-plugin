@@ -4,8 +4,12 @@
 
 @event = undefined
 
+@breadcrumbs = ['list']
+
 @on 'mount', ->
   global.event_view = @
 
-@clickList = (e) ->
-  @event = undefined
+@on 'update', ->
+  @breadcrumbs = ['list']
+  if @event?
+    @breadcrumbs.push 'eventid'

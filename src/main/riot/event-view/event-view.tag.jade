@@ -1,7 +1,5 @@
 event-view
-  a(href='#',onclick='{ clickList }') LIST
-  span(show='{ event != undefined }')  &gt;
-    event-id
+  breadcrumb-list(breadcrumbs='{ breadcrumbs }')
   event-list(show='{ event == undefined }',events='{ datamap.events }')
   event-detail(show='{ event != undefined }')
 

@@ -1,5 +1,5 @@
 event-pages
-  div(each='{ page, i in opts.pages }')
-    div page { i + 1 }
+  ul(each='{ page, i in opts.pages }')
+    li page { i + 1 }
 
   script(src='./event-pages.coffee')
