@@ -7,6 +7,9 @@ import './event-id/event-id.tag.jade'
 import './event-name/event-name.tag.jade'
 import './event-detail/event-detail.tag.jade'
 import './event-pages/event-pages.tag.jade'
+import './event-page/event-page.tag.jade'
+import './event-page-num/event-page-num.tag.jade'
+import './event-page-conditions/event-page-conditions.tag.jade'
 import './breadcrumb-list/breadcrumb-list.tag.jade'
 
-riot.mount('event-view');
+riot.mount('event-view')

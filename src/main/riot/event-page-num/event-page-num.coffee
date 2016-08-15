@@ -1,3 +1,3 @@
-# event-id.coffee
+# event-page-num.coffee
 
 @mixin require '../mixin.coffee'

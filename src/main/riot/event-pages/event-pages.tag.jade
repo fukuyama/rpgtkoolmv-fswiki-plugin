@@ -1,5 +1,15 @@
 event-pages
-  ul(each='{ page, i in opts.pages }')
-    li page { i + 1 }
+  ul
+    li Pages
+    li(each='{ page, i in opts.pages }',
+      class='{ current: currentPage == i }',
+      onclick='{ clickPage }')
+      a(href='#')
+        event-page-num(pagenum='{ i + 1 }')
+
+  event-page(page='{ opts.pages[currentPage] }')
+
+  style(scoped)
+    include event-pages.css
 
   script(src='./event-pages.coffee')

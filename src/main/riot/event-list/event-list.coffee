@@ -2,6 +2,6 @@
 
 @event_filter = (o) -> o
 
-@click = (e) ->
+@clickList = (e) =>
   event_view.update
     event : e.item.event

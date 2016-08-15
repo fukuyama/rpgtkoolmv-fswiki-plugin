@@ -5,6 +5,7 @@ breadcrumb-list
       a(if='{ breadcrumb == "eventid" }',href='#')
         event-id(eventid='{ parent.event.id }')
 
-  link(scoped,src='./breadcrumb-list.css',rel='stylesheet',type='text/css')
+  style(scoped)
+    include breadcrumb-list.css
 
   script(src='./breadcrumb-list.coffee')
