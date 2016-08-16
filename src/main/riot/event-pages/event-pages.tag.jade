@@ -4,8 +4,7 @@ event-pages
     li(each='{ page, i in opts.pages }',
       class='{ current: currentPage == i }',
       onclick='{ clickPage }')
-      a(href='#')
-        event-page-num(pagenum='{ i + 1 }')
+      event-page-num(pagenum='{ i + 1 }')
 
   event-page(page='{ opts.pages[currentPage] }')
 
