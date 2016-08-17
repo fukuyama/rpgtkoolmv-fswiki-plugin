@@ -9,7 +9,11 @@
 @on 'mount', ->
   global.event_view = @
 
-@on 'update', ->
+@on 'update', (e) ->
+  if e?.datamap?
+    @event = e.datamap.events[2]
+    e.event = @event
+    console.log @event
   @breadcrumbs = ['list']
-  if @event?
+  if e?.event?
     @breadcrumbs.push 'eventid'
