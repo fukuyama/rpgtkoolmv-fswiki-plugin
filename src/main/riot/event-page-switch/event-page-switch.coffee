@@ -3,4 +3,4 @@
 @mixin require '../mixin.coffee'
 
 @on 'update', (e) ->
-  console.log 'event-page-switch',@opts
+  console.log 'event-page-switch',@opts,e
