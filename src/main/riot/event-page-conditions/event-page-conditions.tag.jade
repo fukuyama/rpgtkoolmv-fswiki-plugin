@@ -1,10 +1,12 @@
 event-page-conditions
   div 出現条件
   event-page-switch(
+    if='{ opts.conditions.switch1Valid }'
     switch-id='{ opts.conditions.switch1Id }'
     switch-valid='{ opts.conditions.switch1Valid }'
   )
   event-page-switch(
+    if='{ opts.conditions.switch2Valid }'
     switch-id='{ opts.conditions.switch2Id }'
     switch-valid='{ opts.conditions.switch2Valid }'
   )

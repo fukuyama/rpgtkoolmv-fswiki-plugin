@@ -1,6 +1,6 @@
 event-page-switch
-  div { opts.switchValid }
-  div { pad(opts.switchId,4) }
+  input(type='checkbox',checked='{ opts.switchValid }',disabled)
+  span { pad(opts.switchId,4) }
 
   style(scoped)
     include event-page-switch.css
