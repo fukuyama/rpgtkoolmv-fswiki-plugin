@@ -1,6 +1,7 @@
 event-page-switch
   input(type='checkbox',checked='{ opts.switchValid }',disabled)
-  span { pad(opts.switchId,4) }
+  switch-name(switch-id='{ opts.switchId }')
+  span がオンの時
 
   style(scoped)
     include event-page-switch.css

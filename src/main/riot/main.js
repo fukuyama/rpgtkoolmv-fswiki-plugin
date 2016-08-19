@@ -12,5 +12,6 @@ import './event-page/event-page.tag.jade'
 import './event-page-num/event-page-num.tag.jade'
 import './event-page-conditions/event-page-conditions.tag.jade'
 import './event-page-switch/event-page-switch.tag.jade'
+import './switch-name/switch-name.tag.jade'
 
 riot.mount('event-view')

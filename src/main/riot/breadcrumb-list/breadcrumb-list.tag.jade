@@ -1,9 +1,9 @@
 breadcrumb-list
   ul
-    li(each='{ breadcrumb in opts.breadcrumbs }')
+    li(each='{ breadcrumb in breadcrumbs }')
       a(if='{ breadcrumb == "list" }',href='#',onclick='{ clickList }') LIST
       a(if='{ breadcrumb == "eventid" }',href='#')
-        event-id(eventid='{ parent.event.id }')
+        event-id(eventid='{ event.id }')
 
   style(scoped)
     include breadcrumb-list.css
