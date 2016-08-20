@@ -1,0 +1,8 @@
+event-page-self-switch
+  input(type='checkbox',checked='{ opts.selfSwitchValid }',disabled)
+  span [{ opts.selfSwitchCh }] がオンの時
+
+  style(scoped)
+    include event-page-self-switch.css
+
+  script(src='./event-page-self-switch.coffee')

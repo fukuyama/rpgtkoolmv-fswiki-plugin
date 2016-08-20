@@ -10,6 +10,15 @@ event-page-conditions
     switch-id='{ opts.conditions.switch2Id }'
     switch-valid='{ opts.conditions.switch2Valid }'
   )
+  event-page-self-switch(
+    if='{ opts.conditions.selfSwitchValid }'
+    self-switch-ch='{ opts.conditions.selfSwitchCh }'
+    self-switch-valid='{ opts.conditions.selfSwitchValid }'
+  )
+  event-page-item(
+    if='{ opts.conditions.itemValid }'
+    item-id='{ opts.conditions.itemId }'
+  )
 
   style(scoped)
     include event-page-conditions.css
