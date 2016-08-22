@@ -19,6 +19,10 @@ event-page-conditions
     if='{ opts.conditions.itemValid }'
     item-id='{ opts.conditions.itemId }'
   )
+  event-page-actor(
+    if='{ opts.conditions.actorValid }'
+    actor-id='{ opts.conditions.actorId }'
+  )
 
   style(scoped)
     include event-page-conditions.css

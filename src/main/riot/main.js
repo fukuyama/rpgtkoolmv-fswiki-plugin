@@ -14,8 +14,10 @@ import './event-page-conditions/event-page-conditions.tag.jade'
 import './event-page-switch/event-page-switch.tag.jade'
 import './event-page-self-switch/event-page-self-switch.tag.jade'
 import './event-page-item/event-page-item.tag.jade'
+import './event-page-actor/event-page-actor.tag.jade'
 
 import './switch-name/switch-name.tag.jade'
 import './item-name/item-name.tag.jade'
+import './actor-name/actor-name.tag.jade'
 
 riot.mount('event-view')
