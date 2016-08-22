@@ -8,20 +8,25 @@
     <event-view></event-view>
     <script type="text/javascript" src="js/event_view.js"></script>
     <script type="text/javascript">
-    $.ajax({
-      url      : 'data/Map001.json',
-      dataType : 'json',
-      cache    : false,
-      success  : function (data) {
-        event_view.update({switches:['','スイッチ１','スイッチ２']});
+    function loadData(url,success) {
+      $.ajax({
+        url      : url,
+        dataType : 'json',
+        cache    : false,
+        success  : success,
+        error    : function (xhr, status, err) {
+          console.error(this.props.url, status, err.toString());
+        }
+      });
+    }
+    loadData('data/System.json',function (data) {
+      event_view.update({switches:data.switches});
+      loadData('data/Map001.json',function (data) {
         event_view.update({
           datamap : data,
           event   : data.events[2]
         });
-      },
-      error    : function (xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }
+      });
     });
     </script>
   </body>
