@@ -1,7 +1,7 @@
 breadcrumb-list
   ul
     li(each='{ breadcrumb in breadcrumbs }')
-      a(if='{ breadcrumb == "list" }',href='#',onclick='{ clickList }') LIST
+      a(if='{ breadcrumb == "list" }',href='#',onclick='{ clickList }') イベント
       a(if='{ breadcrumb == "eventid" }',href='#')
         event-id(eventid='{ event.id }')
 

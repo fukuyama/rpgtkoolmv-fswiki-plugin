@@ -1,9 +1,11 @@
 event-pages
   ul
     li Pages
-    li(each='{ page, i in opts.pages }',
-      class='{ current: currentPage == i }',
-      onclick='{ clickPage }')
+    li(
+      each='{ page, i in opts.pages }'
+      class='{ current: currentPage == i }'
+      onclick='{ clickPage }'
+    )
       event-page-num(pagenum='{ i + 1 }')
 
   event-page(page='{ opts.pages[currentPage] }')

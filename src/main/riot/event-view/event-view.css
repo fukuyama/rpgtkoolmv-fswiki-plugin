@@ -1,0 +1,13 @@
+:scope { display: block }
+
+.event_list {
+  display  : inline-block;
+  position : relative;
+  width    : 20%;
+}
+
+.event_detail {
+  display  : inline-block;
+  position : absolute;
+  width    : 70%;
+}

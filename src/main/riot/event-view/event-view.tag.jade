@@ -1,6 +1,11 @@
 event-view
   breadcrumb-list
-  event-list(show='{ event == undefined }',events='{ datamap.events }')
-  event-detail(show='{ event != undefined }')
+  div.event_list
+    event-list(events='{ datamap.events }')
+  div.event_detail
+    event-detail(show='{ event != undefined }')
+
+  style(scoped)
+    include event-view.css
 
   script(src='./event-view.coffee')

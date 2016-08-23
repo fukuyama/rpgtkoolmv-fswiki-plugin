@@ -12,4 +12,4 @@
   @breadcrumbs = ['list']
   if e?.event?
     @breadcrumbs.push 'eventid'
-    console.log 'breadcrumb-list',@opts,e
+    #console.log 'breadcrumb-list',@opts,e

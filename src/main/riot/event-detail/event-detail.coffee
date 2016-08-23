@@ -1,4 +1,4 @@
 # event-detail.coffee
 
-@clickDetail = (e) =>
-  console.log 'clickDetail', @event
+#@clickDetail = (e) =>
+#  console.log 'clickDetail', @event

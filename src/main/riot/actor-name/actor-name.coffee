@@ -2,8 +2,8 @@
 
 @actors = []
 
-@name = (id) -> @actors[id] ? '(名前なし)'
+@name = (id) -> @actors[id].name ? '(名前なし)'
 
 @on 'update', (e) ->
-  if e?.actors?
-    @actors = e.actors
+  if e?.dataactors?
+    @actors = e.dataactors
