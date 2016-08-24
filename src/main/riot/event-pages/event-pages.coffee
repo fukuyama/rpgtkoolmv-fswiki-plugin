@@ -6,5 +6,5 @@
   @currentPage = e.item.i
 
 @on 'update', (e) ->
-  unless @opts.pages?
+  unless @opts.pages?[@currentPage]?
     @currentPage = 0
