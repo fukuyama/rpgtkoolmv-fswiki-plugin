@@ -1,4 +1,5 @@
 :scope {
-  display : block;
-  float   : left;
+  display  : inline-block;
+  position : relative;
+  width    : 240px;
 }
