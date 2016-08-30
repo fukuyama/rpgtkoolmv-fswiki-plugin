@@ -24,4 +24,9 @@ import './switch-name/switch-name.tag.jade'
 import './item-name/item-name.tag.jade'
 import './actor-name/actor-name.tag.jade'
 
+import './move-type/move-type.tag.jade'
+import './move-speed/move-speed.tag.jade'
+import './move-route/move-route.tag.jade'
+import './move-frequency/move-frequency.tag.jade'
+
 riot.mount('event-view')
