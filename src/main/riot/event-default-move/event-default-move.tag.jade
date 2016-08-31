@@ -1,9 +1,19 @@
 event-default-move
   div 自立移動
-  move-type(move-type='{ opts.page.moveType }')
-  move-route(move-route='{ opts.page.moveRoute }')
-  move-speed(move-speed='{ opts.page.moveSpeed }')
-  move-frequency(move-frequency='{ opts.page.moveFrequency }')
+  table
+    tr
+      th タイプ
+      td
+        move-type(move-type='{ opts.page.moveType }')
+        move-route(move-route='{ opts.page.moveRoute }')
+    tr
+      th 速度
+      td
+        move-speed(move-speed='{ opts.page.moveSpeed }')
+    tr
+      th 頻度
+      td
+        move-frequency(move-frequency='{ opts.page.moveFrequency }')
 
   style(scoped)
     include event-default-move.css
