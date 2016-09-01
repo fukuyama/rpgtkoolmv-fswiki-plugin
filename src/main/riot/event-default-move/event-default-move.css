@@ -1,2 +1,7 @@
 // event-default-move.css
-:scope { display: block }
+:scope { display: block; }
+
+:scope > div {
+  display : inline-block;
+  border  : solid 1px #aaa;
+}
