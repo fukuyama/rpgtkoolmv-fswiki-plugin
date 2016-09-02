@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head lang="ja">
+    <meta charset="UTF-8">
+  </head>
+  <style type="text/css">
+  #base {
+    position: absolute;
+    display: block;
+  }
+  div {
+    display: block;
+  }
+  #t1 {
+    display: inline-block;
+    border: solid 1px #aaa;
+  }
+  #t2 {
+    display: inline-block;
+    border: solid 1px #aaa;
+  }
+  ul {
+    position: relative;
+  }
+  table {
+    display: inline-block;
+    //table-layout: fixed;
+  }
+  </style>
+  <body>
+    <div id="base">
+      <abc>
+        <ul>
+          <li>test</li>
+        </ul>
+        <aaa>
+        <div id="t1">
+          <span>TEST</span>
+          <div>
+            TEST
+          </div>
+        </div>
+        </aaa>
+        <bbb>
+        <div id="t2">
+          <div>
+          <div>
+            TEST
+          </div>
+          <table>
+            <tr>
+              <td>TSET</td>
+            </tr>
+          </table>
+          </div>
+        </div>
+        </bbb>
+      </abc>
+    </div>
+  </body>
+</html>
