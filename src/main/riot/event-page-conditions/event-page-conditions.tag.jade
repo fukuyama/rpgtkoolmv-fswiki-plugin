@@ -1,32 +1,27 @@
 event-page-conditions
   div
     span 出現条件
-    div
+    div(if='{ opts.conditions.switch1Valid }')
       event-page-switch(
-        if='{ opts.conditions.switch1Valid }'
         switch-id='{ opts.conditions.switch1Id }'
         switch-valid='{ opts.conditions.switch1Valid }'
       )
-    div
+    div(if='{ opts.conditions.switch2Valid }')
       event-page-switch(
-        if='{ opts.conditions.switch2Valid }'
         switch-id='{ opts.conditions.switch2Id }'
         switch-valid='{ opts.conditions.switch2Valid }'
       )
-    div
+    div(if='{ opts.conditions.selfSwitchValid }')
       event-page-self-switch(
-        if='{ opts.conditions.selfSwitchValid }'
         self-switch-ch='{ opts.conditions.selfSwitchCh }'
         self-switch-valid='{ opts.conditions.selfSwitchValid }'
       )
-    div
+    div(if='{ opts.conditions.itemValid }')
       event-page-item(
-        if='{ opts.conditions.itemValid }'
         item-id='{ opts.conditions.itemId }'
       )
-    div
+    div(if='{ opts.conditions.actorValid }')
       event-page-actor(
-        if='{ opts.conditions.actorValid }'
         actor-id='{ opts.conditions.actorId }'
       )
 

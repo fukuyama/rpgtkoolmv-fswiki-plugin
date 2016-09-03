@@ -1,5 +1,5 @@
 // event-default-move.css
-:scope { display: block; }
+:scope { display : block; }
 
 :scope > div {
   display : inline-block;
@@ -7,5 +7,5 @@
 }
 
 table {
-  display: inline-block;
+  display : inline-block;
 }
