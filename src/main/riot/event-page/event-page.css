@@ -1,2 +1,10 @@
 // event-page.css
 :scope { display: block; }
+
+:scope > div {
+  width: 400px;
+}
+
+:scope > div > div {
+  margin-bottom: 5px;
+}

@@ -1,12 +1,13 @@
 event-page
   div
-    event-page-conditions(conditions='{ opts.page.conditions }')
-  div
-    event-default-move(page='{ opts.page }')
-  div
-    event-option(page='{ opts.page }')
-  div
-    event-trigger(page='{ opts.page }')
+    div
+      event-page-conditions(conditions='{ opts.page.conditions }')
+    div
+      move-default(page='{ opts.page }')
+    div
+      event-option(page='{ opts.page }')
+    div
+      event-trigger(page='{ opts.page }')
 
   style(scoped)
     include event-page.css

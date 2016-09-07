@@ -1,7 +1,7 @@
-event-default-move
+move-default
   div
+    div 自立移動
     table
-      caption 自立移動
       tr
         th タイプ
         td
@@ -17,6 +17,6 @@ event-default-move
           move-frequency(move-frequency='{ opts.page.moveFrequency }')
 
   style(scoped)
-    include event-default-move.css
+    include move-default.css
 
-  script(src='./event-default-move.coffee')
+  script(src='./move-default.coffee')
