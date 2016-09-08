@@ -1,5 +1,7 @@
 import riot from 'riot'
 
+import './checkbox/checkbox.tag.jade'
+
 import './breadcrumb-list/breadcrumb-list.tag.jade'
 import './event-view/event-view.tag.jade'
 import './event-list/event-list.tag.jade'

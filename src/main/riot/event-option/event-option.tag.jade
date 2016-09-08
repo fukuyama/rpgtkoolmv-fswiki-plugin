@@ -1,6 +1,18 @@
 event-option
-  div event-option
-
+  div
+    div オプション
+    div
+      checkbox(checked='{ opts.page.walkAnime }')
+      span 歩行アニメ
+    div
+      checkbox(checked='{ opts.page.stepAnime }')
+      span 足踏みアニメ
+    div
+      checkbox(checked='{ opts.page.directionFix }')
+      span 向き固定
+    div
+      checkbox(checked='{ opts.page.through }')
+      span すり抜け
   style(scoped)
     include event-option.css
 
