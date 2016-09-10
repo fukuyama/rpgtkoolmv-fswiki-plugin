@@ -1,4 +1,4 @@
-# event-default-move.coffee
+# move-default.coffee
 
-@on 'update', (e) ->
-  console.log 'event-default-move',@opts,e
+#@on 'update', (e) ->
+#  console.log 'move-default',@opts,e
