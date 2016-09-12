@@ -8,9 +8,7 @@
   '並列処理'
 ]
 
-@triggerName = (trigger) ->
-  console.log trigger
-  @names[trigger]
+@triggerName = (trigger) -> @names[trigger]
 
 #@on 'update', (e) ->
 #  console.log 'event-trigger',@opts,e

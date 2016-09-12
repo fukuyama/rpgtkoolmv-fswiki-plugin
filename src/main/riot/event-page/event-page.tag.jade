@@ -1,5 +1,5 @@
 event-page
-  div
+  div.page_info
     div
       event-page-conditions(conditions='{ opts.page.conditions }')
     div
@@ -8,6 +8,9 @@ event-page
       event-option(page='{ opts.page }')
     div
       event-trigger(page='{ opts.page }')
+  div.page_event
+    div
+      event-commands(page='{ opts.page }')
 
   style(scoped)
     include event-page.css

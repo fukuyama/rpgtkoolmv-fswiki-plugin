@@ -21,6 +21,8 @@ import './event-page-self-switch/event-page-self-switch.tag.jade'
 import './event-page-item/event-page-item.tag.jade'
 import './event-page-actor/event-page-actor.tag.jade'
 
+import './event-commands/event-commands.tag.jade'
+
 import './switch-name/switch-name.tag.jade'
 import './item-name/item-name.tag.jade'
 import './actor-name/actor-name.tag.jade'
@@ -31,4 +33,4 @@ import './move-speed/move-speed.tag.jade'
 import './move-route/move-route.tag.jade'
 import './move-frequency/move-frequency.tag.jade'
 
-riot.mount('event-view')
+global.event_view = riot.mount('event-view')[0]
