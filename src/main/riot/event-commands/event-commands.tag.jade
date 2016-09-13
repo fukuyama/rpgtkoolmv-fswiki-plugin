@@ -1,5 +1,11 @@
 event-commands
-  div event-commands
+  div
+    ul
+      li(
+        each='{ command, i in opts.page.list }'
+      )
+        div code = { command.code }
+        div indent = { command.indent }
 
   style(scoped)
     include event-commands.css

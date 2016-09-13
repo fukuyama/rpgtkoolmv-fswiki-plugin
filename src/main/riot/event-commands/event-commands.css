@@ -6,3 +6,10 @@
   border  : solid 1px #aaa;
   width   : 100%;
 }
+
+:scope > div > ul {
+  position   : relative;
+  list-style : none;
+  margin     : .5em 0px;
+  padding    : 0px;
+}

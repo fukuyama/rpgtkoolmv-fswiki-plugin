@@ -1,13 +1,13 @@
 // event-pages.css
 
 :scope { display: block }
-ul {
+:scope > ul {
   position   : relative;
   list-style : none;
   margin     : .5em 0px;
   padding    : 0px;
 }
-ul:after {
+:scope > ul:after {
   position : absolute;
   content  : "";
   width    : 100%;
@@ -16,19 +16,19 @@ ul:after {
   z-index  : 1;
   border-bottom : 1px solid #AAA;
 }
-ul li {
+:scope > ul li {
   position   : relative;
   display    : inline-block;
   z-index    : 0;
   padding    : 0.25em 0.5em;
 }
-ul li:not(:first-child) {
+:scope > ul li:not(:first-child) {
   margin     : 0px 0px 0px -1px;
   border     : 1px solid #AAA;
   background : #ECECEC;
   cursor     : pointer;
 }
-ul li.current {
+:scope > ul li.current {
   background : #FFF;
   z-index    : 2;
   border-bottom-color: #FFF;

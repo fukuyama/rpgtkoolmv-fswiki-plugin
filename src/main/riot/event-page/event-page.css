@@ -7,6 +7,7 @@
   float: left;
   display: inline-block;
   width: 400px;
+  margin-right: 5px;
 }
 
 :scope > .page_event {
