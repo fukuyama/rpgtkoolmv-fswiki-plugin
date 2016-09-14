@@ -3,9 +3,10 @@ event-commands
     ul
       li(
         each='{ command, i in opts.page.list }'
+        class='indent_{ command.indent }'
       )
-        div code = { command.code }
-        div indent = { command.indent }
+        span(
+        ) code = { command.code }
 
   style(scoped)
     include event-commands.css
