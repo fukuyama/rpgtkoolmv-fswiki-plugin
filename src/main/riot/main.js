@@ -22,6 +22,7 @@ import './event-page-item/event-page-item.tag.jade'
 import './event-page-actor/event-page-actor.tag.jade'
 
 import './event-commands/event-commands.tag.jade'
+import './event-command/event-command.tag.jade'
 
 import './switch-name/switch-name.tag.jade'
 import './item-name/item-name.tag.jade'

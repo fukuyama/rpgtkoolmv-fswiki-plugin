@@ -1,0 +1,8 @@
+event-command
+  div(class='indent_{ opts.command.indent }')
+    span code={ opts.command.code }
+
+  style(scoped)
+    include event-command.css
+
+  script(src='./event-command.coffee')

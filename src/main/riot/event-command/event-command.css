@@ -1,0 +1,14 @@
+// event-command.css
+:scope { display: block; }
+
+:scope > .indent_0 {
+  margin-left: 0px
+}
+
+:scope > .indent_1 {
+  margin-left: 10px
+}
+
+:scope > .indent_2 {
+  margin-left: 20px
+}
