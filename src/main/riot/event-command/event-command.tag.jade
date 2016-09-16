@@ -1,6 +1,6 @@
 event-command
   div(class='indent_{ opts.command.indent }')
-    span code={ opts.command.code }
+    span { showCommand(opts.command) }
 
   style(scoped)
     include event-command.css
