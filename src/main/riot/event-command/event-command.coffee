@@ -1,10 +1,16 @@
 # event-command.coffee
 
 @commands =
-  code101: (parameters) ->
-    '文章表示'
-  code401: (parameters) ->
-    parameters[0]
+  code101: (p) ->
+    r = '文章:'
+    r += p[0]
+    if p[0] == ''
+      r += 'なし'
+    r += [':ウィンドウ',':暗くする',':透明'][p[1]]
+    r += [':上',':中',':下'][p[2]]
+    r
+  code401: (p) ->
+    p[0]
 
 @showCommand = (command) ->
   {
