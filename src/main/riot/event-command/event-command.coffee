@@ -1,14 +1,36 @@
 # event-command.coffee
 
+param101 = [
+  {
+    parse : (v) ->
+      if v == ''
+        'なし'
+      else
+        v
+  }
+  {
+    data : [
+      'ウィンドウ'
+      '暗くする'
+      '透明'
+    ]
+    parse : (n) -> @data[n]
+  }
+  {
+    data : [
+      '上'
+      '中'
+      '下'
+    ]
+    parse : (n) -> @data[n]
+  }
+]
+
 @commands =
   code101: (p) ->
-    r = '文章:'
-    r += p[0]
-    if p[0] == ''
-      r += 'なし'
-    r += [':ウィンドウ',':暗くする',':透明'][p[1]]
-    r += [':上',':中',':下'][p[2]]
-    r
+    r = ['文章']
+    r.push param101[i].parse v for v,i in p when param101[i]?
+    r.join ':'
   code401: (p) ->
     p[0]
 
