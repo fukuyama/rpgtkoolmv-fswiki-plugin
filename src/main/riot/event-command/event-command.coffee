@@ -1,5 +1,21 @@
 # event-command.coffee
 
+parseNop =
+  parse : (v) -> v
+
+parseParameters = (p,parameters) ->
+  parameters[i].parse v for v,i in p when parameters[i]?
+
+parseDefault = (d) ->
+  parse : (v) ->
+    if v == ''
+      d
+    else
+      v
+
+parseListData = (l) ->
+  parse : (n) -> @data[n]
+  data : l
 
 @commands =
   code101 :
@@ -8,32 +24,23 @@
       r.push @parameters[i].parse v for v,i in p when @parameters[i]?
       r.join ':'
     parameters : [
-      {
-        parse : (v) ->
-          if v == ''
-            'なし'
-          else
-            v
-      }
-      {
-        data : [
-          'ウィンドウ'
-          '暗くする'
-          '透明'
-        ]
-        parse : (n) -> @data[n]
-      }
-      {
-        data : [
-          '上'
-          '中'
-          '下'
-        ]
-        parse : (n) -> @data[n]
-      }
+      parseDefault  'なし'
+      parseListData ['ウィンドウ','暗くする','透明']
+      parseListData ['上','中','下']
+      parseNop
+    ]
+  code102 :
+    parse : (p) ->
+      r = ['102']
+      r.push @parameters[i].parse v for v,i in p when @parameters[i]?
+      r.join ':'
+    parameters : [
+      parseNop
+      parseNop
+      parseNop
     ]
   code401 :
-    parse : (p) -> p[0]
+    parseDefault ''
 
 @showCommand = (command) ->
   {
