@@ -31,12 +31,15 @@ parseListData = (l) ->
     ]
   code102 :
     parse : (p) ->
-      r = ['102']
+      r = ['条件分岐']
       r.push @parameters[i].parse v for v,i in p when @parameters[i]?
       r.join ':'
     parameters : [
       parseNop
-      parseNop
+      parseListData ['分岐','禁止','選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
+      parseListData ['なし','選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
+      parseListData ['左','中','右']
+      parseListData ['ウィンドウ','暗くする','透明']
       parseNop
     ]
   code401 :
