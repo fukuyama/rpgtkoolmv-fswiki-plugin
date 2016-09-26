@@ -35,7 +35,7 @@ parseListData = (l) ->
       r.push @parameters[i].parse v for v,i in p when @parameters[i]?
       r.join ':'
     parameters : [
-      parseNop
+      undefined
       parseListData ['分岐','禁止','選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
       parseListData ['なし','選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
       parseListData ['左','中','右']
@@ -44,6 +44,17 @@ parseListData = (l) ->
     ]
   code401 :
     parseDefault ''
+  code402 :
+    parse : (p) ->
+      r = []
+      r.push @parameters[i].parse v for v,i in p when @parameters[i]?
+      r.join ':'
+    parameters : [
+      parseNop
+      parseNop
+      parseNop
+      parseNop
+    ]
 
 @showCommand = (command) ->
   {
