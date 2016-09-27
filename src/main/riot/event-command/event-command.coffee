@@ -1,5 +1,12 @@
 # event-command.coffee
 
+WINDOW_CONFIG  = ['ウィンドウ','暗くする','透明']
+WINDOW_V_POS   = ['上','中','下']
+WINDOW_H_POS   = ['左','中','右']
+SELECT_LIST    = ['選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
+SELECT_DEFAULT = ['なし'].concat SELECT_LIST
+CANCEL_TYPE    = ['分岐','禁止'].concat SELECT_LIST
+
 parseNop =
   parse : (v) -> v
 
@@ -25,8 +32,8 @@ parseListData = (l) ->
       r.join ':'
     parameters : [
       parseDefault  'なし'
-      parseListData ['ウィンドウ','暗くする','透明']
-      parseListData ['上','中','下']
+      parseListData WINDOW_CONFIG
+      parseListData WINDOW_V_POS
       parseNop
     ]
   code102 :
@@ -36,10 +43,10 @@ parseListData = (l) ->
       r.join ':'
     parameters : [
       undefined
-      parseListData ['分岐','禁止','選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
-      parseListData ['なし','選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
-      parseListData ['左','中','右']
-      parseListData ['ウィンドウ','暗くする','透明']
+      parseListData CANCEL_TYPE
+      parseListData SELECT_DEFAULT
+      parseListData WINDOW_H_POS
+      parseListData WINDOW_CONFIG
       parseNop
     ]
   code401 :
