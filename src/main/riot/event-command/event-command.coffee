@@ -20,9 +20,11 @@ parseDefault = (d) ->
     else
       v
 
-parseListData = (l) ->
-  parse : (n) -> @data[n]
-  data : l
+parseListData = (d,b = 0) ->
+  parse : (n) ->
+    @data[n - b] ? n
+  data : d
+  base : b
 
 @commands =
   code101 :
@@ -43,8 +45,8 @@ parseListData = (l) ->
       r.join ':'
     parameters : [
       undefined
-      parseListData CANCEL_TYPE
-      parseListData SELECT_DEFAULT
+      parseListData CANCEL_TYPE,-2
+      parseListData SELECT_DEFAULT,-1
       parseListData WINDOW_H_POS
       parseListData WINDOW_CONFIG
       parseNop

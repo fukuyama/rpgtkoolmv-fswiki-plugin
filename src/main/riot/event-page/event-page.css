@@ -4,18 +4,18 @@
 :scope > .page_info {
   //position : absolute;
   //position   : static;
-  float: left;
-  display: inline-block;
-  width: 400px;
-  margin-right: 5px;
+  float   : left;
+  display : inline-block;
+  width   : 300px;
+  margin-right : 5px;
 }
 
 :scope > .page_event {
   //position   : relative;
   //position   :static;
-  display: inline-block;
+  display : inline-block;
 }
 
 :scope > div > div {
-  margin-bottom: 5px;
+  margin-bottom : 5px;
 }
