@@ -40,11 +40,11 @@ parseListData = (d,b = 0) ->
     ]
   code102 :
     parse : (p) ->
-      r = ['条件分岐']
+      r = ['選択肢']
       r.push @parameters[i].parse v for v,i in p when @parameters[i]?
       r.join ':'
     parameters : [
-      undefined
+      parseNop
       parseListData CANCEL_TYPE,-2
       parseListData SELECT_DEFAULT,-1
       parseListData WINDOW_H_POS
@@ -54,16 +54,11 @@ parseListData = (d,b = 0) ->
   code401 :
     parseDefault ''
   code402 :
-    parse : (p) ->
-      r = []
-      r.push @parameters[i].parse v for v,i in p when @parameters[i]?
-      r.join ':'
-    parameters : [
-      parseNop
-      parseNop
-      parseNop
-      parseNop
-    ]
+    parse : (p) -> "\"#{p[1]}\"を選択した場合"
+  code403 :
+    parse : (p) -> 'キャンセルした場合'
+  code404 :
+    parse : (p) -> ''
 
 @showCommand = (command) ->
   {

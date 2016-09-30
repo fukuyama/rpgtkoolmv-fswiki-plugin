@@ -1,9 +1,9 @@
 // event-command.css
 :scope { display: block; }
 
-:scope > .indent_0 { margin-left:  0px; }
-:scope > .indent_1 { margin-left: 10px; }
-:scope > .indent_2 { margin-left: 20px; }
-:scope > .indent_3 { margin-left: 30px; }
-:scope > .indent_4 { margin-left: 40px; }
-:scope > .indent_5 { margin-left: 50px; }
+:scope > .indent_0 { margin-left: 0px; }
+:scope > .indent_1 { margin-left: 1em; }
+:scope > .indent_2 { margin-left: 2em; }
+:scope > .indent_3 { margin-left: 3em; }
+:scope > .indent_4 { margin-left: 4em; }
+:scope > .indent_5 { margin-left: 5em; }
