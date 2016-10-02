@@ -7,3 +7,6 @@
 :scope > .indent_3 { margin-left: 3em; }
 :scope > .indent_4 { margin-left: 4em; }
 :scope > .indent_5 { margin-left: 5em; }
+
+
+:scope > .cmd_101 { color: red; }
