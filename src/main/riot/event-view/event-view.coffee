@@ -1,5 +1,7 @@
 # event-view.coffee
 
+@mixin require '../mixin.coffee'
+
 @datamap = {}
 
 @event = undefined
@@ -8,3 +10,5 @@
 
 @on 'update', (e) ->
   console.log 'event-view',@opts,e
+  if e?.datasystem?
+    @updateSystem e.datasystem

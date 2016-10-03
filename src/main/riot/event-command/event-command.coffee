@@ -1,5 +1,9 @@
 # event-command.coffee
 
+@mixin require '../mixin.coffee'
+
+util = @
+
 WINDOW_CONFIG  = ['ウィンドウ','暗くする','透明']
 WINDOW_V_POS   = ['上','中','下']
 WINDOW_H_POS   = ['左','中','右']
@@ -9,6 +13,15 @@ CANCEL_TYPE    = ['分岐','禁止'].concat SELECT_LIST
 
 parseNop =
   parse : (v) -> v
+
+parseValue = (param) ->
+  {
+    prefix
+    suffix
+  } = param
+  parse  : (v) -> v
+  prefix : prefix ? ''
+  suffix : suffix ? ''
 
 parseParameters = (p,parameters) ->
   parameters[i].parse v for v,i in p when parameters[i]?
@@ -26,6 +39,9 @@ parseListData = (d,b = 0) ->
   data : d
   base : b
 
+parseVariableId =
+  parse : (v) -> util.variables(v)
+
 @commands =
   code101 :
     parse : (p) ->
@@ -34,9 +50,9 @@ parseListData = (d,b = 0) ->
       r.join ':'
     parameters : [
       parseDefault  'なし'
+      parseDefault  ''
       parseListData WINDOW_CONFIG
       parseListData WINDOW_V_POS
-      parseNop
     ]
   code102 :
     parse : (p) ->
@@ -50,6 +66,15 @@ parseListData = (d,b = 0) ->
       parseListData WINDOW_H_POS
       parseListData WINDOW_CONFIG
       parseNop
+    ]
+  code103 :
+    parse : (p) ->
+      r = ['数値の入力']
+      r.push @parameters[i].parse v for v,i in p when @parameters[i]?
+      r.join ':'
+    parameters : [
+      parseVariableId
+      parseValue '最大桁数'
     ]
   code401 :
     parseDefault ''
