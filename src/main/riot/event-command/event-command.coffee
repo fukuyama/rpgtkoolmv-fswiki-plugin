@@ -10,6 +10,7 @@ WINDOW_H_POS   = ['左','中','右']
 SELECT_LIST    = ['選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
 SELECT_DEFAULT = ['なし'].concat SELECT_LIST
 CANCEL_TYPE    = ['分岐','禁止'].concat SELECT_LIST
+ITEM_TYPE      = ['通常アイテム','大事なもの','隠しアイテムＡ','隠しアイテムＢ']
 
 parseNop =
   parse : (v) -> v
@@ -19,7 +20,7 @@ parseValue = (param) ->
     prefix
     suffix
   } = param
-  parse  : (v) -> v
+  parse  : (v) -> @prefix + v + @suffix
   prefix : prefix ? ''
   suffix : suffix ? ''
 
@@ -40,13 +41,16 @@ parseListData = (d,b = 0) ->
   base : b
 
 parseVariableId =
-  parse : (v) -> util.variables(v)
+  parse : (v) -> util.variables(v) + '[' + util.pad(v,4) + ']'
+
+parseParameters = (r,p,parameters) ->
+  r.push parameters[i].parse v for v,i in p when parameters[i]?
 
 @commands =
   code101 :
     parse : (p) ->
       r = ['文章']
-      r.push @parameters[i].parse v for v,i in p when @parameters[i]?
+      parseParameters r,p,@parameters
       r.join ':'
     parameters : [
       parseDefault  'なし'
@@ -57,7 +61,7 @@ parseVariableId =
   code102 :
     parse : (p) ->
       r = ['選択肢']
-      r.push @parameters[i].parse v for v,i in p when @parameters[i]?
+      parseParameters r,p,@parameters
       r.join ':'
     parameters : [
       parseNop
@@ -70,11 +74,21 @@ parseVariableId =
   code103 :
     parse : (p) ->
       r = ['数値の入力']
-      r.push @parameters[i].parse v for v,i in p when @parameters[i]?
+      parseParameters r,p,@parameters
       r.join ':'
     parameters : [
       parseVariableId
-      parseValue '最大桁数'
+      parseValue
+        prefix : '最大桁数'
+    ]
+  code104 :
+    parse : (p) ->
+      r = ['アイテムの選択']
+      parseParameters r,p,@parameters
+      r.join ':'
+    parameters : [
+      parseVariableId
+      parseListData ITEM_TYPE,1
     ]
   code401 :
     parseDefault ''
@@ -83,7 +97,9 @@ parseVariableId =
   code403 :
     parse : (p) -> 'キャンセルした場合'
   code404 :
-    parse : (p) -> ''
+    parse : (p) -> '◆'
+  code0 :
+    parse : (p) -> '◆'
 
 @showCommand = (command) ->
   {
