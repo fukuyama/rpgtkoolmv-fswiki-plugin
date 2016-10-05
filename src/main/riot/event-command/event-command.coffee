@@ -24,6 +24,21 @@ parseValue = (param) ->
   prefix : prefix ? ''
   suffix : suffix ? ''
 
+parseBoolean = (param) ->
+  {
+    prefix
+    suffix
+    text
+  } = param
+  parse  : (v) ->
+    if v
+      @prefix + @text[0] + @suffix
+    else
+      @prefix + @text[1] + @suffix
+  text   : text ? ['','']
+  prefix : prefix ? ''
+  suffix : suffix ? ''
+
 parseParameters = (p,parameters) ->
   parameters[i].parse v for v,i in p when parameters[i]?
 
@@ -90,6 +105,18 @@ parseParameters = (r,p,parameters) ->
       parseVariableId
       parseListData ITEM_TYPE,1
     ]
+  code105 :
+    parse : (p) ->
+      r = ['文章スクロール']
+      parseParameters r,p,@parameters
+      r.join ':'
+    parameters : [
+      parseValue
+        prefix : '速度'
+      parseBoolean
+        text   : ['なし','あり']
+        prefix : '早送り'
+    ]
   code401 :
     parseDefault ''
   code402 :
@@ -98,6 +125,8 @@ parseParameters = (r,p,parameters) ->
     parse : (p) -> 'キャンセルした場合'
   code404 :
     parse : (p) -> '◆'
+  code405 :
+    parseDefault ''
   code0 :
     parse : (p) -> '◆'
 
