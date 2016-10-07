@@ -1,9 +1,6 @@
-// event-page.css
 :scope { display: block; }
 
 :scope > .page_info {
-  //position : absolute;
-  //position   : static;
   float   : left;
   display : inline-block;
   width   : 300px;
@@ -11,8 +8,6 @@
 }
 
 :scope > .page_event {
-  //position   : relative;
-  //position   :static;
   display : inline-block;
 }
 
