@@ -58,6 +58,9 @@ parseListData = (d,b = 0) ->
 parseVariableId =
   parse : (v) -> util.variables(v) + '[' + util.pad(v,4) + ']'
 
+parseSwitchId =
+  parse : (v) -> util.switches(v) + '[' + util.pad(v,4) + ']'
+
 parseParameters = (r,p,parameters) ->
   r.push parameters[i].parse v for v,i in p when parameters[i]?
 
@@ -116,6 +119,27 @@ parseParameters = (r,p,parameters) ->
       parseBoolean
         text   : ['なし','あり']
         prefix : '早送り'
+    ]
+  code111 :
+    parse : (p) ->
+      r = ['分岐']
+      t = p.shift()
+      switch t
+        when 0 # スイッチ
+          parseParameters r,p, @parameters0
+        #when 1 # 変数
+        #when 2 # セルフスイッチ
+        else
+          r.push t
+          parseParameters r,p, @parameters
+      r.join ':'
+    parameters : [
+      parseNop
+      parseNop
+      parseNop
+    ]
+    parameters0 : [
+      parseSwitchId
     ]
   code401 :
     parseDefault ''
