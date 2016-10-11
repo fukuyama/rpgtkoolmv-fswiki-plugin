@@ -29,8 +29,11 @@ parseBoolean = (param) ->
     prefix
     suffix
     text
+    value
   } = param
   parse  : (v) ->
+    if @value?
+      v = (@value is v)
     if v
       @prefix + @text[0] + @suffix
     else
@@ -38,6 +41,7 @@ parseBoolean = (param) ->
   text   : text ? ['','']
   prefix : prefix ? ''
   suffix : suffix ? ''
+  value  : value
 
 parseParameters = (p,parameters) ->
   parameters[i].parse v for v,i in p when parameters[i]?
@@ -140,6 +144,27 @@ parseParameters = (r,p,parameters) ->
     ]
     parameters0 : [
       parseSwitchId
+    ]
+  code121 :
+    parse : (p) ->
+      r = ['スイッチ操作']
+      parseParameters r,p,@parameters
+      r.join ':'
+    parameters : [
+      parseSwitchId
+      parseSwitchId
+      parseBoolean
+        value : 0
+        text  : ['ON','OFF']
+    ]
+  code122 :
+    parse : (p) ->
+      r = ['変数操作']
+      parseParameters r,p,@parameters
+      r.join ':'
+    parameters : [
+      parseVariableId
+      parseVariableId
     ]
   code401 :
     parseDefault ''
