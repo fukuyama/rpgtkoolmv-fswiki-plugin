@@ -161,6 +161,9 @@ parseParameters = (r,p,parameters) ->
     parse : (p) ->
       r = ['変数操作']
       parseParameters r,p,@parameters
+      switch p[3]
+        when 0
+          r.push "#{p[4]}を代入"
       r.join ':'
     parameters : [
       parseVariableId
