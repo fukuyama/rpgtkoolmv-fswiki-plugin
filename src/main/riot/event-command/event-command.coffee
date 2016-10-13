@@ -164,10 +164,13 @@ parseParameters = (r,p,parameters) ->
       switch p[3]
         when 0
           r.push "#{p[4]}を代入"
+        when 1
+          r.push parseVariableId.parse(p[4]) + "を代入"
       r.join ':'
     parameters : [
       parseVariableId
       parseVariableId
+      parseNop
     ]
   code401 :
     parseDefault ''
