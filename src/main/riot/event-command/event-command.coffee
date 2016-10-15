@@ -160,17 +160,17 @@ parseParameters = (r,p,parameters) ->
   code122 :
     parse : (p) ->
       r = ['変数操作']
+      op = parseListData(['代入','加算','減算', '乗算','除算','乗余']).parse p[2]
       parseParameters r,p,@parameters
       switch p[3]
         when 0
-          r.push "#{p[4]}を代入"
+          r.push "#{p[4]}を#{op}"
         when 1
-          r.push parseVariableId.parse(p[4]) + "を代入"
+          r.push parseVariableId.parse(p[4]) + "を" + op
       r.join ':'
     parameters : [
       parseVariableId
       parseVariableId
-      parseNop
     ]
   code401 :
     parseDefault ''
