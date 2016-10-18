@@ -1,7 +1,8 @@
 <%= name %>
   div <%= name %>
 
-  style(scoped)
-    include <%= name %>.css
+  style(scoped,type='less')
+    include <%= name %>.less
 
-  script(src='./<%= name %>.coffee')
+  script(type='coffee')
+    include <%= name %>.coffee

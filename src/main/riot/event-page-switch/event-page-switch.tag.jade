@@ -3,7 +3,8 @@ event-page-switch
   switch-name(switch-id='{ opts.switchId }')
   span がオンの時
 
-  style(scoped)
-    include event-page-switch.css
+  style(scoped,type='less')
+    include event-page-switch.less
 
-  script(src='./event-page-switch.coffee')
+  script(type='coffee')
+    include event-page-switch.coffee

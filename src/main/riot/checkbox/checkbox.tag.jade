@@ -1,7 +1,8 @@
 checkbox
   input(type='checkbox',checked='{ opts.__checked }',disabled)
 
-  style(scoped)
-    include checkbox.css
+  style(scoped,type='less')
+    include checkbox.less
 
-  script(src='./checkbox.coffee')
+  script(type='coffee')
+    include checkbox.coffee

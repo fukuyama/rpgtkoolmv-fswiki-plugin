@@ -1,7 +1,8 @@
 actor-name
   span { name(opts.actorId) }
 
-  style(scoped)
-    include actor-name.css
+  style(scoped,type='less')
+    include actor-name.less
 
-  script(src='./actor-name.coffee')
+  script(type='coffee')
+    include actor-name.coffee

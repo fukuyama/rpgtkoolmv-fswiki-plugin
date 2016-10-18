@@ -13,7 +13,9 @@ event-option
     div
       checkbox(checked='{ opts.page.through }')
       span すり抜け
-  style(scoped)
-    include event-option.css
 
-  script(src='./event-option.coffee')
+  style(scoped,type='less')
+    include event-option.less
+
+  script(type='coffee')
+    include event-option.coffee

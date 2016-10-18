@@ -1,7 +1,8 @@
 move-speed
   span { opts.moveSpeed }:{ moveSpeed(opts.moveSpeed) }
 
-  style(scoped)
-    include move-speed.css
+  style(scoped,type='less')
+    include move-speed.less
 
-  script(src='./move-speed.coffee')
+  script(type='coffee')
+    include move-speed.coffee

@@ -3,7 +3,8 @@ event-trigger
     div トリガー
     div { triggerName(opts.page.trigger) }
 
-  style(scoped)
-    include event-trigger.css
+  style(scoped,type='less')
+    include event-trigger.less
 
-  script(src='./event-trigger.coffee')
+  script(type='coffee')
+    include event-trigger.coffee

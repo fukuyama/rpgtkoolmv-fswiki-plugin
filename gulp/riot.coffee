@@ -5,8 +5,8 @@ gutil       = require 'gulp-util'
 guglify     = require 'gulp-uglify'
 gsourcemaps = require 'gulp-sourcemaps'
 
-browserify  = require 'browserify'
 coffeeify   = require 'coffeeify'
+browserify  = require 'browserify'
 riotify     = require 'riotify'
 babelify    = require 'babelify'
 source      = require 'vinyl-source-stream'
@@ -22,7 +22,7 @@ gulp.task 'riot:build', =>
     gutil.log(e)
     @emit 'end'
   browserify entry,
-      extensions : ['.coffee', '.js', '.jade']
+      extensions : ['.coffee', '.js', '.jade', '.css', '.less']
       debug      : true
     .transform coffeeify,
       bare       : true

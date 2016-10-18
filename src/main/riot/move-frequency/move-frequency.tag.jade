@@ -1,7 +1,8 @@
 move-frequency
   span { opts.moveFrequency }:{ moveFrequency(opts.moveFrequency) }
 
-  style(scoped)
-    include move-frequency.css
+  style(scoped,type='less')
+    include move-frequency.less
 
-  script(src='./move-frequency.coffee')
+  script(type='coffee')
+    include move-frequency.coffee

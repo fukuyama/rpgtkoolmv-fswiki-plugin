@@ -1,7 +1,8 @@
 item-name
   span { name(opts.itemId) }[{ pad(opts.itemId,4) }]
 
-  style(scoped)
-    include item-name.css
+  style(scoped,type='less')
+    include item-name.less
 
-  script(src='./item-name.coffee')
+  script(type='coffee')
+    include item-name.coffee

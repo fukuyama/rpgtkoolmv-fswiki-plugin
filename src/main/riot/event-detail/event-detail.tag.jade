@@ -1,8 +1,10 @@
 event-detail
+  event-id(eventid='{ event.id }')
   event-name(name='{ event.name }')
   event-pages(pages='{ event.pages }')
 
-  style(scoped)
-    include event-detail.css
+  style(scoped,type='less')
+    include event-detail.less
 
-  script(src='./event-detail.coffee')
+  script(type='coffee')
+    include event-detail.coffee

@@ -1,0 +1,41 @@
+// event-pages.less
+:scope {
+  display : block;
+  >ul {
+    position   : relative;
+    list-style : none;
+    margin     : .5em 0px;
+    padding    : 0px;
+
+    &:after {
+      position : absolute;
+      content  : "";
+      width    : 100%;
+      bottom   : 0;
+      left     : 0;
+      z-index  : 1;
+      border-bottom : 1px solid #AAA;
+    }
+
+    >li {
+      position   : relative;
+      display    : inline-block;
+      z-index    : 0;
+      padding    : 0.25em 0.5em;
+
+      &:not(:first-child) {
+        margin     : 0px 0px 0px -1px;
+        border     : 1px solid #AAA;
+        background : #ECECEC;
+        cursor     : pointer;
+      }
+
+      &.current {
+        background : #FFF;
+        z-index    : 2;
+        border-bottom-color: #FFF;
+        cursor     : auto;
+      }
+    }
+  }
+}

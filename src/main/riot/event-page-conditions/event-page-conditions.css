@@ -1,7 +1,0 @@
-:scope { display: block; }
-
-:scope > div {
-  display : inline-block;
-  border  : solid 1px #aaa;
-  width   : 100%;
-}

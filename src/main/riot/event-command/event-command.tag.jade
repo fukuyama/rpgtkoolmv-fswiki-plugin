@@ -2,7 +2,8 @@ event-command
   div(class='indent_{ opts.command.indent } cmd_{ opts.command.code }')
     span { showCommand(opts.command) }
 
-  style(scoped)
-    include event-command.css
+  style(scoped,type='less')
+    include event-command.less
 
-  script(src='./event-command.coffee')
+  script(type='coffee')
+    include event-command.coffee

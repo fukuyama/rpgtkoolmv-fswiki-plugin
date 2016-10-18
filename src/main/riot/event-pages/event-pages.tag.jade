@@ -10,7 +10,8 @@ event-pages
 
   event-page(page='{ opts.pages[currentPage] }')
 
-  style(scoped)
-    include event-pages.css
+  style(scoped,type='less')
+    include event-pages.less
 
-  script(src='./event-pages.coffee')
+  script(type='coffee')
+    include event-pages.coffee

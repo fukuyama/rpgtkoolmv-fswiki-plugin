@@ -2,7 +2,8 @@ event-page-item
   item-name(item-id='{ opts.itemId }')
   span を持っている。
 
-  style(scoped)
-    include event-page-item.css
+  style(scoped,type='less')
+    include event-page-item.less
 
-  script(src='./event-page-item.coffee')
+  script(type='coffee')
+    include event-page-item.coffee

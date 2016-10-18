@@ -3,7 +3,8 @@ event-page-actor
   actor-name(actor-id='{ opts.actorId }')
   span が居る
 
-  style(scoped)
-    include event-page-actor.css
+  style(scoped,type='less')
+    include event-page-actor.less
 
-  script(src='./event-page-actor.coffee')
+  script(type='coffee')
+    include event-page-actor.coffee

@@ -4,7 +4,8 @@ event-commands
       li(each='{ command, i in opts.page.list }')
         event-command(command='{ command }')
 
-  style(scoped)
-    include event-commands.css
+  style(scoped,type='less')
+    include event-commands.less
 
-  script(src='./event-commands.coffee')
+  script(type='coffee')
+    include event-commands.coffee

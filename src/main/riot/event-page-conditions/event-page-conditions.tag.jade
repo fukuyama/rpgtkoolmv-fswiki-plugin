@@ -25,7 +25,8 @@ event-page-conditions
         actor-id='{ opts.conditions.actorId }'
       )
 
-  style(scoped)
-    include event-page-conditions.css
+  style(scoped,type='less')
+    include event-page-conditions.less
 
-  script(src='./event-page-conditions.coffee')
+  script(type='coffee')
+    include event-page-conditions.coffee

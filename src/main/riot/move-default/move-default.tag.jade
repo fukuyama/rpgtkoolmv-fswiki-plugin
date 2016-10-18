@@ -16,7 +16,8 @@ move-default
         td
           move-frequency(move-frequency='{ opts.page.moveFrequency }')
 
-  style(scoped)
-    include move-default.css
+  style(scoped,type='less')
+    include move-default.less
 
-  script(src='./move-default.coffee')
+  script(type='coffee')
+    include move-default.coffee

@@ -1,7 +1,8 @@
 move-type
   span { moveType(opts.moveType) }
 
-  style(scoped)
-    include move-type.css
+  style(scoped,type='less')
+    include move-type.less
 
-  script(src='./move-type.coffee')
+  script(type='coffee')
+    include move-type.coffee

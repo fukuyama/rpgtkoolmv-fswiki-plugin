@@ -12,7 +12,8 @@ event-page
     div
       event-commands(page='{ opts.page }')
 
-  style(scoped)
-    include event-page.css
+  style(scoped,type='less')
+    include event-page.less
 
-  script(src='./event-page.coffee')
+  script(type='coffee')
+    include event-page.coffee
