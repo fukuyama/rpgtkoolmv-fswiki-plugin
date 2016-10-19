@@ -167,6 +167,8 @@ parseParameters = (r,p,parameters) ->
           r.push "#{p[4]}を#{op}"
         when 1
           r.push parseVariableId.parse(p[4]) + "を" + op
+        when 2
+          r.push 'ランダム' + p[5] + '-' + p[4] + 1
       r.join ':'
     parameters : [
       parseVariableId
