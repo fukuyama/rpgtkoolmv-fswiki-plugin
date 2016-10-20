@@ -68,6 +68,96 @@ parseSwitchId =
 parseParameters = (r,p,parameters) ->
   r.push parameters[i].parse v for v,i in p when parameters[i]?
 
+gameDataOperand = (type, param1, param2) ->
+  return ''
+  # switch (type) {
+  # case 0:  // Item
+  #     return $gameParty.numItems($dataItems[param1]);
+  # case 1:  // Weapon
+  #     return $gameParty.numItems($dataWeapons[param1]);
+  # case 2:  // Armor
+  #     return $gameParty.numItems($dataArmors[param1]);
+  # case 3:  // Actor
+  #     var actor = $gameActors.actor(param1);
+  #     if (actor) {
+  #         switch (param2) {
+  #         case 0:  // Level
+  #             return actor.level;
+  #         case 1:  // EXP
+  #             return actor.currentExp();
+  #         case 2:  // HP
+  #             return actor.hp;
+  #         case 3:  // MP
+  #             return actor.mp;
+  #         default:    // Parameter
+  #             if (param2 >= 4 && param2 <= 11) {
+  #                 return actor.param(param2 - 4);
+  #             }
+  #         }
+  #     }
+  #     break;
+  # case 4:  // Enemy
+  #     var enemy = $gameTroop.members()[param1];
+  #     if (enemy) {
+  #         switch (param2) {
+  #         case 0:  // HP
+  #             return enemy.hp;
+  #         case 1:  // MP
+  #             return enemy.mp;
+  #         default:    // Parameter
+  #             if (param2 >= 2 && param2 <= 9) {
+  #                 return enemy.param(param2 - 2);
+  #             }
+  #         }
+  #     }
+  #     break;
+  # case 5:  // Character
+  #     var character = this.character(param1);
+  #     if (character) {
+  #         switch (param2) {
+  #         case 0:  // Map X
+  #             return character.x;
+  #         case 1:  // Map Y
+  #             return character.y;
+  #         case 2:  // Direction
+  #             return character.direction();
+  #         case 3:  // Screen X
+  #             return character.screenX();
+  #         case 4:  // Screen Y
+  #             return character.screenY();
+  #         }
+  #     }
+  #     break;
+  # case 6:  // Party
+  #     actor = $gameParty.members()[param1];
+  #     return actor ? actor.actorId() : 0;
+  # case 7:  // Other
+  #     switch (param1) {
+  #     case 0:  // Map ID
+  #         return $gameMap.mapId();
+  #     case 1:  // Party Members
+  #         return $gameParty.size();
+  #     case 2:  // Gold
+  #         return $gameParty.gold();
+  #     case 3:  // Steps
+  #         return $gameParty.steps();
+  #     case 4:  // Play Time
+  #         return $gameSystem.playtime();
+  #     case 5:  // Timer
+  #         return $gameTimer.seconds();
+  #     case 6:  // Save Count
+  #         return $gameSystem.saveCount();
+  #     case 7:  // Battle Count
+  #         return $gameSystem.battleCount();
+  #     case 8:  // Win Count
+  #         return $gameSystem.winCount();
+  #     case 9:  // Escape Count
+  #         return $gameSystem.escapeCount();
+  #     }
+  #     break;
+  # }
+  # return 0;
+
 @commands =
   code101 :
     parse : (p) ->
@@ -169,6 +259,9 @@ parseParameters = (r,p,parameters) ->
           r.push parseVariableId.parse(p[4]) + "を" + op
         when 2
           r.push 'ランダム' + p[5] + '-' + p[4] + 1
+        when 3
+          r.push 'ゲームデータ'
+          # + gameDataOperand(this._params[4], this._params[5], this._params[6])
       r.join ':'
     parameters : [
       parseVariableId
