@@ -68,7 +68,18 @@ parseSwitchId =
 parseParameters = (r,p,parameters) ->
   r.push parameters[i].parse v for v,i in p when parameters[i]?
 
-gameDataOperand = (type, param1, param2) ->
+parseDataOperand = (type, param1, param2) ->
+  switch type
+    when 0 # Item
+      return @items param1
+    when 1 # Weapon
+      return @weapons param1
+    when 2 # Armor
+      return @armors param1
+    when 3 # Actor
+      return @actors param1
+    else
+      return type + ',' + param1 + ',' + param2
   return ''
   # switch (type) {
   # case 0:  // Item
@@ -260,8 +271,7 @@ gameDataOperand = (type, param1, param2) ->
         when 2
           r.push 'ランダム' + p[5] + '-' + p[4] + 1
         when 3
-          r.push 'ゲームデータ'
-          # + gameDataOperand(this._params[4], this._params[5], this._params[6])
+          r.push 'ゲームデータ ' + parseDataOperand(p[4], p[5], p[6])
       r.join ':'
     parameters : [
       parseVariableId

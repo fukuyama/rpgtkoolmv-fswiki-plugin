@@ -3,6 +3,7 @@
 system =
   switches : []
   variables : []
+  items : []
 
 mixin =
   pad: (n, len) ->
@@ -15,9 +16,14 @@ mixin =
     system.switches  = p.switches
     system.variables = p.variables
 
+  updateItems : (items) ->
+    system.items = items
+
   switches : (id) -> system.switches[id] ? '(スイッチ)'
 
   variables : (id) -> system.variables[id] ? '(変数)'
+
+  items : (id) -> system.items[id].name ? '(アイテム)'
 
 
 module.exports = mixin

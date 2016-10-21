@@ -12,3 +12,5 @@
   console.log 'event-view',@opts,e
   if e?.datasystem?
     @updateSystem e.datasystem
+  if e?.dataitems?
+    @updateItems e.dataitems
