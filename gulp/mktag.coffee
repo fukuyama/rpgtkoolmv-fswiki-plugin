@@ -11,12 +11,17 @@ gulp.task 'mktag', (cb) =>
   unless name
     cb new Error('-name tag_name not found')
     return
+  base = 'src/main/riot/'
+  i = process.argv.indexOf '-base'
+  if i >= 0
+    if process.argv[i + 1]
+      base = process.argv[i + 1]
   gulp.src('src/template/*')
     .pipe template
       name : name
     .pipe rename (path) ->
       path.basename = name
       path.extname  = '.tag.jade' if path.extname is '.jade'
-    .pipe gulp.dest('src/main/riot/' + name)
+    .pipe gulp.dest(base + name)
     .on 'end', cb
   return
