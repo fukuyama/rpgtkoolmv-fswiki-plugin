@@ -7,5 +7,5 @@ riot = require 'riot'
 
 @on 'updated', (e) ->
   if @opts.page?.list?
-    for command in @opts.page.list
-      riot.mount "code#{ command.code }"
+    for command,i in @opts.page.list
+      riot.mount ".s#{i}", "code#{ command.code }", {command: command}

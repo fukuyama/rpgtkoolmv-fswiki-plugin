@@ -1,6 +1,6 @@
 event-commands
   div
-    span(each='{ command, i in opts.page.list }',riot-tag='code{ command.code }')
+    span(each='{ command, i in opts.page.list }',class='s{ i }')
 
   style(scoped,type='less')
     include event-commands.less
