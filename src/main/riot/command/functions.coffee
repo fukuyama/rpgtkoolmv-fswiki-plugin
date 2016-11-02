@@ -1,5 +1,7 @@
 # functions.coffee
 
+util = require '../mixin.coffee'
+
 WINDOW_CONFIG  = ['ウィンドウ','暗くする','透明']
 WINDOW_V_POS   = ['上','中','下']
 WINDOW_H_POS   = ['左','中','右']
@@ -9,9 +11,16 @@ CANCEL_TYPE    = ['分岐','禁止'].concat SELECT_LIST
 ITEM_TYPE      = ['通常アイテム','大事なもの','隠しアイテムＡ','隠しアイテムＢ']
 
 functions =
-  parseDefault : (v,d) -> if v == '' then d else v
+  parseDefault : (v,d) ->
+    if v == '' then d else v
+  parseFaceImage : (name,index) ->
+    if name == ''
+      'なし'
+    else
+      "#{name}[#{index}]"
   parseWindowConfig : (v) -> WINDOW_CONFIG[v]
   parseWindowVertical : (v) -> WINDOW_V_POS[v]
+  parseVariableId : (v) -> util.variables(v) + '[' + util.pad(v,4) + ']'
   # parseListData : (d,b = 0) ->
   #   @data[n - b] ? n
   # data : d

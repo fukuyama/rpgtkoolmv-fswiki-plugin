@@ -1,7 +1,6 @@
 code101
   div 文章
-    | { parseDefault(opts.command.parameters[0],'なし') }
-    | { parseDefault(opts.command.parameters[1],'') }
+    | { parseFaceImage(opts.command.parameters[0],opts.command.parameters[1]) }
     | { parseWindowConfig(opts.command.parameters[2]) }
     | { parseWindowVertical(opts.command.parameters[3]) }
 
