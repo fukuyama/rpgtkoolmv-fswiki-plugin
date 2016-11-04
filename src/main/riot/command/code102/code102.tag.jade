@@ -1,5 +1,9 @@
 code102
   div 選択肢
+    | { parseCancelType       (opts.command.parameters[1] - 2) }
+    | { parseSelectDefault    (opts.command.parameters[2] - 1) }
+    | { parseWindowHorizontal (opts.command.parameters[3]) }
+    | { parseWindowConfig     (opts.command.parameters[4]) }
 
   style(scoped,type='less')
     include code102.less

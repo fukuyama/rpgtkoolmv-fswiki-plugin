@@ -20,7 +20,10 @@ functions =
       "#{name}[#{index}]"
   parseWindowConfig : (v) -> WINDOW_CONFIG[v]
   parseWindowVertical : (v) -> WINDOW_V_POS[v]
+  parseWindowHorizontal : (v) -> WINDOW_H_POS[v]
   parseVariableId : (v) -> util.variables(v) + '[' + util.pad(v,4) + ']'
+  parseSelectDefault : (v) -> SELECT_DEFAULT[v]
+  parseCancelType : (v) -> CANCEL_TYPE[v]
   # parseListData : (d,b = 0) ->
   #   @data[n - b] ? n
   # data : d
