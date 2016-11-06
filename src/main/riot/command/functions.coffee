@@ -24,6 +24,7 @@ functions =
   parseVariableId : (v) -> util.variables(v) + '[' + util.pad(v,4) + ']'
   parseSelectDefault : (v) -> SELECT_DEFAULT[v]
   parseCancelType : (v) -> CANCEL_TYPE[v]
+  parseItemType : (v) -> ITEM_TYPE[v]
   # parseListData : (d,b = 0) ->
   #   @data[n - b] ? n
   # data : d
