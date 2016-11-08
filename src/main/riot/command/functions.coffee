@@ -18,13 +18,15 @@ functions =
       'なし'
     else
       "#{name}[#{index}]"
-  parseWindowConfig : (v) -> WINDOW_CONFIG[v]
-  parseWindowVertical : (v) -> WINDOW_V_POS[v]
+  parseWindowConfig     : (v) -> WINDOW_CONFIG[v]
+  parseWindowVertical   : (v) -> WINDOW_V_POS[v]
   parseWindowHorizontal : (v) -> WINDOW_H_POS[v]
-  parseVariableId : (v) -> util.variables(v) + '[' + util.pad(v,4) + ']'
-  parseSelectDefault : (v) -> SELECT_DEFAULT[v]
-  parseCancelType : (v) -> CANCEL_TYPE[v]
-  parseItemType : (v) -> ITEM_TYPE[v]
+  parseVariableId       : (v) -> util.variables(v) + '[' + util.pad(v,4) + ']'
+  parseSwitchId         : (v) -> util.switches(v)  + '[' + util.pad(v,4) + ']'
+  parseSelectDefault    : (v) -> SELECT_DEFAULT[v]
+  parseCancelType       : (v) -> CANCEL_TYPE[v]
+  parseItemType         : (v) -> ITEM_TYPE[v]
+  parseBoolean          : (v,a,b) -> if v then a else b
   # parseListData : (d,b = 0) ->
   #   @data[n - b] ? n
   # data : d
