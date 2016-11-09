@@ -9,7 +9,8 @@
   switch t
     when 0 # スイッチ
       r.push @parseSwitchId p[1]
-    #when 1 # 変数
+    when 1 # 変数
+      r.push @parseVariableId p[1]
     #when 2 # セルフスイッチ
     when 7 # Gold
       r.push 'お金'
