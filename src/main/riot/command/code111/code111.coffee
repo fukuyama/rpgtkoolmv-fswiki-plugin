@@ -8,10 +8,11 @@
   t = p[0]
   switch t
     when 0 # スイッチ
-      r.push @parseSwitchId p[1]
+      r.push 'スイッチ' + @parseSwitchId p[1]
     when 1 # 変数
-      r.push @parseVariableId p[1]
-    #when 2 # セルフスイッチ
+      r.push '変数' + @parseVariableId p[1]
+    when 2 # セルフスイッチ
+      r.push 'セルフスイッチ' + p[1]
     when 7 # Gold
       r.push 'お金'
       switch p[2]
