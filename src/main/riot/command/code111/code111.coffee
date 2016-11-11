@@ -10,7 +10,22 @@
     when 0 # スイッチ
       r.push 'スイッチ' + @parseSwitchId p[1]
     when 1 # 変数
-      r.push '変数' + @parseVariableId p[1]
+      r.push '変数'
+      v1 = @parseVariableId p[1]
+      v2 = if p[2] is 0 then p[3] else @parseVariableId p[3]
+      switch p[4]
+        when 0  # Equal to
+          r.push "#{v1} == #{v2}"
+        when 1  # Greater than or Equal to
+          r.push "#{v1} >= #{v2}"
+        when 2  # Less than or Equal to
+          r.push "#{v1} <= #{v2}"
+        when 3  # Greater than
+          r.push "#{v1} > #{v2}"
+        when 4  # Less than
+          r.push "#{v1} < #{v2}"
+        when 5  # Not Equal to
+          r.push "#{v1} != #{v2}"
     when 2 # セルフスイッチ
       r.push 'セルフスイッチ' + p[1]
     when 7 # Gold
