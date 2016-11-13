@@ -15,17 +15,17 @@
       v2 = if p[2] is 0 then p[3] else @parseVariableId p[3]
       switch p[4]
         when 0  # Equal to
-          r.push "#{v1} == #{v2}"
+          r.push "#{v1} と #{v2} が同じ"
         when 1  # Greater than or Equal to
-          r.push "#{v1} >= #{v2}"
+          r.push "#{v1} が #{v2} 以上"
         when 2  # Less than or Equal to
-          r.push "#{v1} <= #{v2}"
+          r.push "#{v1} が #{v2} 以下"
         when 3  # Greater than
-          r.push "#{v1} > #{v2}"
+          r.push "#{v1} が #{v2} より大きい"
         when 4  # Less than
-          r.push "#{v1} < #{v2}"
+          r.push "#{v1} が #{v2} より小さい"
         when 5  # Not Equal to
-          r.push "#{v1} != #{v2}"
+          r.push "#{v1} が #{v2} と等しくない"
     when 2 # セルフスイッチ
       r.push 'セルフスイッチ' + p[1]
     when 7 # Gold
