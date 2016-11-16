@@ -30,6 +30,10 @@
       r.push 'セルフスイッチ' + p[1]
     when 3 # タイマー
       r.push 'タイマー'
+      if p[2]
+        r.push p[1] + '以上'
+      else
+        r.push p[1] + '以下'
     when 4 # アクター
       r.push 'アクター'
     when 5 # エネミー
