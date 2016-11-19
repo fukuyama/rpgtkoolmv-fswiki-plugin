@@ -36,6 +36,24 @@
         r.push p[1] + '以下'
     when 4 # アクター
       r.push 'アクター'
+        actor = @parseActor p[1]
+        if actor
+          n = p[3]
+          switch p[2]
+          when 0 # In the Party
+            r.push ''
+          when 1 # Name
+            r.push 'の名前が' + n
+          when 2 # Class
+            r.push 'のクラスが' + @parseClass n
+          when 3 # Skill
+            r.push 'が覚えているスキル' + @parseSkill n
+          when 4 # Weapon
+            r.push 'が持っている武器' + @parseWeapon n
+          when 5 # Armor
+            r.push 'が持っている防具' + @parseArmor n
+          when 6 # State
+            r.push 'のステータス' + @parseState n
     when 5 # エネミー
       r.push 'エネミー'
     when 6 # キャラクター
