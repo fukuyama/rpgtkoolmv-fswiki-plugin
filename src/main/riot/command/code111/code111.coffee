@@ -36,10 +36,10 @@
         r.push p[1] + '以下'
     when 4 # アクター
       r.push 'アクター'
-        actor = @parseActor p[1]
-        if actor
-          n = p[3]
-          switch p[2]
+      actor = @parseActor p[1]
+      if actor?
+        n = p[3]
+        switch p[2]
           when 0 # In the Party
             r.push ''
           when 1 # Name

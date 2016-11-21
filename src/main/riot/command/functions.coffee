@@ -27,9 +27,11 @@ functions =
   parseCancelType       : (v) -> CANCEL_TYPE[v]
   parseItemType         : (v) -> ITEM_TYPE[v]
   parseBoolean          : (v,a,b) -> if v then a else b
-  # parseListData : (d,b = 0) ->
-  #   @data[n - b] ? n
-  # data : d
-  # base : b
+  parseActor  : (v) -> v
+  parseClass  : (v) -> v
+  parseSkill  : (v) -> v
+  parseWeapon : (v) -> v
+  parseArmor  : (v) -> v
+  parseState  : (v) -> v
 
 module.exports = functions
