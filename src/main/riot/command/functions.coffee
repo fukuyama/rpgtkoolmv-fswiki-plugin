@@ -30,8 +30,9 @@ functions =
   parseActor  : (v) -> v
   parseClass  : (v) -> v
   parseSkill  : (v) -> v
-  parseWeapon : (v) -> v
-  parseArmor  : (v) -> v
+  parseWeapon : (v) -> util.weapons(v) + '[' + util.pad(v,4) + ']'
+  parseArmor  : (v) -> util.armors(v)  + '[' + util.pad(v,4) + ']'
+  parseItem   : (v) -> util.items(v)   + '[' + util.pad(v,4) + ']'
   parseState  : (v) -> v
 
 module.exports = functions

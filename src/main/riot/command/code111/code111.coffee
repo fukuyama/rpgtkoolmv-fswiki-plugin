@@ -38,10 +38,11 @@
       r.push 'アクター'
       actor = @parseActor p[1]
       if actor?
+        r.push actor
         n = p[3]
         switch p[2]
           when 0 # In the Party
-            r.push ''
+            r.push 'がパーティにいる'
           when 1 # Name
             r.push 'の名前が' + n
           when 2 # Class
