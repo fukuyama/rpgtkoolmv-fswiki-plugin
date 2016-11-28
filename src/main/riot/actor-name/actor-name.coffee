@@ -1,9 +1,10 @@
 # actor-name.coffee
 
-@actors = []
+@mixin require '../mixin.coffee'
 
-@name = (id) -> @actors[id].name ? '(名前なし)'
-
-@on 'update', (e) ->
-  if e?.dataactors?
-    @actors = e.dataactors
+@actorName = (id) ->
+  console.log 'actorName'
+  console.log @actors
+  actor = @actors(id)
+  console.log actor
+  if actor? then actor.name else '(名前なし)'
