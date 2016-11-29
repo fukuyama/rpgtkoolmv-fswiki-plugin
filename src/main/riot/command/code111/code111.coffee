@@ -4,8 +4,8 @@
 
 @conditional = (command) ->
   p = command.parameters
-  r = []
   t = p[0]
+  r = [t]
   switch t
     when 0 # スイッチ
       r.push 'スイッチ' + @parseSwitchId p[1]

@@ -27,12 +27,12 @@ functions =
   parseCancelType       : (v) -> CANCEL_TYPE[v]
   parseItemType         : (v) -> ITEM_TYPE[v]
   parseBoolean          : (v,a,b) -> if v then a else b
-  parseActor  : (v) -> v
+  parseActor  : (v) -> util.actors(v).name
   parseClass  : (v) -> v
   parseSkill  : (v) -> v
-  parseWeapon : (v) -> util.weapons(v) + '[' + util.pad(v,4) + ']'
-  parseArmor  : (v) -> util.armors(v)  + '[' + util.pad(v,4) + ']'
-  parseItem   : (v) -> util.items(v)   + '[' + util.pad(v,4) + ']'
+  parseWeapon : (v) -> (util.weapons(v)?.name ? '(武器)') + '[' + util.pad(v,4) + ']'
+  parseArmor  : (v) -> (util.armors(v)?.name ? '(防具)') + '[' + util.pad(v,4) + ']'
+  parseItem   : (v) -> (util.items(v)?.name ? '(アイテム)') + '[' + util.pad(v,4) + ']'
   parseState  : (v) -> v
 
 module.exports = functions

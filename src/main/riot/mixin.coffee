@@ -26,9 +26,9 @@ mixin =
 
   switches  : (id) -> system.switches[id]  ? '(スイッチ)'
   variables : (id) -> system.variables[id] ? '(変数)'
-  items     : (id) -> system.items[id].name ? '(アイテム)'
-  weapons   : (id) -> system.weapons[id].name ? '(武器)'
-  armors    : (id) -> system.armors[id].name ? '(防具)'
+  items     : (id) -> system.items[id]
+  weapons   : (id) -> system.weapons[id]
+  armors    : (id) -> system.armors[id]
   actors    : (id) -> system.actors[id]
 
 module.exports = mixin
