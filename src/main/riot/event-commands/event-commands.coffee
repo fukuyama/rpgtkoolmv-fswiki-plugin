@@ -9,3 +9,4 @@ riot = require 'riot'
   if @opts.page?.list?
     for command,i in @opts.page.list
       riot.mount ".s#{i}", "code#{ command.code }", {command: command}
+      # console.log tag,command if tag.length is 0
