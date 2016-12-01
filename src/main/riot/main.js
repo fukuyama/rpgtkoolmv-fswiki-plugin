@@ -1,4 +1,4 @@
-import riot from 'riot'
+import * as riot from 'riot'
 
 import './checkbox/checkbox.tag.jade'
 

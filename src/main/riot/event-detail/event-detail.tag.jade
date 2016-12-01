@@ -1,7 +1,7 @@
 event-detail
-  event-id(eventid='{ event.id }')
-  event-name(name='{ event.name }')
-  event-pages(pages='{ event.pages }')
+  event-id(eventid='{ opts.event.id }')
+  event-name(name='{ opts.event.name }')
+  event-pages(pages='{ opts.event.pages }')
 
   style(scoped,type='less')
     include event-detail.less

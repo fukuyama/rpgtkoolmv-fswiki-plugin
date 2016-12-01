@@ -2,7 +2,9 @@
 
 @mixin require '../mixin.coffee'
 
-@datamap = {}
+@datamap = {
+  events : []
+}
 
 @event = undefined
 
