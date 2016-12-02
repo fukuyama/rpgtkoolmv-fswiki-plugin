@@ -34,7 +34,7 @@
         };
       })
     ]).then( function (results) {
-      event_view.update(
+      mountEventView(
         results.reduce( function (context,val,i,array) {
           for ( var prop in val ) {
             if( val.hasOwnProperty( prop ) ) {

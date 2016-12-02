@@ -157,4 +157,7 @@ import './command/code601/code601.tag.jade'
 import './command/code602/code602.tag.jade'
 import './command/code603/code603.tag.jade'
 
-global.event_view = riot.mount('event-view')[0]
+global.mountEventView = (data) => {
+  console.log('mountEventView',data)
+  global.event_view = riot.mount('event-view',data)[0]
+}
