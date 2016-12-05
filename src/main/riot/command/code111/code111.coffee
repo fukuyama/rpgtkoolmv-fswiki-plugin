@@ -57,6 +57,13 @@
             r.push 'のステータス' + @parseState n
     when 5 # エネミー
       r.push 'エネミー'
+      enemy = parseTroopMember p[1]
+      if enemy?
+        switch p[2]
+          when 0 # Appeared
+            r.push 'を追加'
+          when 1 # State
+            r.push 'のステータス' + @parseState p[3]
     when 6 # キャラクター
       r.push 'キャラクター'
     when 7 # お金
