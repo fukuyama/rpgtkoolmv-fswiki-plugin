@@ -34,5 +34,6 @@ functions =
   parseArmor  : (v) -> (util.armors(v)?.name ? '(防具)') + '[' + util.pad(v,4) + ']'
   parseItem   : (v) -> (util.items(v)?.name ? '(アイテム)') + '[' + util.pad(v,4) + ']'
   parseState  : (v) -> v
+  parseTroopMember : (v) -> v
 
 module.exports = functions

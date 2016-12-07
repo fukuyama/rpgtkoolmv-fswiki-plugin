@@ -57,7 +57,7 @@
             r.push 'のステータス' + @parseState n
     when 5 # エネミー
       r.push 'エネミー'
-      enemy = parseTroopMember p[1]
+      enemy = @parseTroopMember p[1]
       if enemy?
         switch p[2]
           when 0 # Appeared
