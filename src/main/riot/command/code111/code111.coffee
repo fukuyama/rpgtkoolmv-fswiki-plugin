@@ -66,6 +66,9 @@
             r.push 'のステータス' + @parseState p[3]
     when 6 # キャラクター
       r.push 'キャラクター'
+      character = @parseCharacter p[1]
+      if character?
+        r.push @parseDirection p[2]
     when 7 # お金
       r.push 'お金'
       switch p[2]

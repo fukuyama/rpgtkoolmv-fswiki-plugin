@@ -35,5 +35,14 @@ functions =
   parseItem   : (v) -> (util.items(v)?.name ? '(アイテム)') + '[' + util.pad(v,4) + ']'
   parseState  : (v) -> v
   parseTroopMember : (v) -> v
+  parseEvent     : (v) -> v
+  parseCharacter : (v) ->
+    if v < 0
+      return 'プレイヤー'
+    if v is 0
+      return 'このイベンド'
+    else
+      return @parseEvent v
+  parseDirection : (v) -> v
 
 module.exports = functions
