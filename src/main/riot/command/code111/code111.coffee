@@ -80,10 +80,16 @@
           r.push p[1] + '未満'
     when 8 # Item
       r.push 'アイテム'
+      r.push @parseItem(p[1])
+      r.push 'を持っている'
     when 9 # Weapon
       r.push '武器'
+      r.push @parseWeapon(p[1])
+      r.push 'を持っている'
     when 10 # Armor
       r.push '防具'
+      r.push @parseArmor(p[1])
+      r.push 'を持っている'
     when 11 # Button
       r.push 'ボタン'
     when 12 # Script
