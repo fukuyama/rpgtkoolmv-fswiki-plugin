@@ -1,5 +1,10 @@
 code121
-  div code121
+  div スイッチの操作：
+    span(if='{ opts.command.parameters[0] == opts.command.parameters[1] }')
+      | { parseSwitchId(opts.command.parameters[0]) }
+    span(if='{ opts.command.parameters[0] != opts.command.parameters[1] }')
+      | { parseSwitchId(opts.command.parameters[0]) } - { parseSwitchId(opts.command.parameters[1]) }
+    span を { opts.command.parameters[2] === 0 ? 'ON' : 'OFF' } にする
 
   style(scoped,type='less')
     include code121.less
