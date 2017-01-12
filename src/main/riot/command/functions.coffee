@@ -9,6 +9,7 @@ SELECT_LIST    = ['選択肢#1','選択肢#2','選択肢#3','選択肢#4','選�
 SELECT_DEFAULT = ['なし'].concat SELECT_LIST
 CANCEL_TYPE    = ['分岐','禁止'].concat SELECT_LIST
 ITEM_TYPE      = ['通常アイテム','大事なもの','隠しアイテムＡ','隠しアイテムＢ']
+OPERATE_TYPE   = ['代入','加算','減算', '乗算','除算','乗余']
 
 functions =
   parseDefault : (v,d) ->
@@ -44,5 +45,6 @@ functions =
     else
       return @parseEvent v
   parseDirection : (v) -> v
+  parseOperateVariable : (v) -> OPERATE_TYPE[v]
 
 module.exports = functions

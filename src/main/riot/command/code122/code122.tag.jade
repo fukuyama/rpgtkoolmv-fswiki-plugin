@@ -1,5 +1,15 @@
 code122
-  div code122
+  div 変数操作:
+    span(if='{ opts.command.parameters[0] == opts.command.parameters[1] }')
+      | { parseVariableId(opts.command.parameters[0]) }
+    span(if='{ opts.command.parameters[0] != opts.command.parameters[1] }')
+      | { parseVariableId(opts.command.parameters[0]) } - { parseVariableId(opts.command.parameters[1]) }
+    span に
+    span(if='{ opts.command.parameters[3] === 0 }')
+      | { opts.command.parameters[4] }
+    span(if='{ opts.command.parameters[3] === 1 }')
+      | { parseVariableId(opts.command.parameters[4]) }
+    span を { parseOperateVariable(opts.command.parameters[2]) } する
 
   style(scoped,type='less')
     include code122.less
