@@ -10,11 +10,11 @@ code122
     span(if='{ opts.command.parameters[3] === 1 }')
       | { parseVariableId(opts.command.parameters[4]) }
     span(if='{ opts.command.parameters[3] === 2 }')
-      | 乱数
+      | 乱数( { opts.command.parameters[4] } - { opts.command.parameters[5] } )
     span(if='{ opts.command.parameters[3] === 3 }')
       | ゲームデータ
     span(if='{ opts.command.parameters[3] === 4 }')
-      | スクリプト
+      | { opts.command.parameters[4] }
     span を { parseOperateVariable(opts.command.parameters[2]) } する
 
   style(scoped,type='less')
