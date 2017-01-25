@@ -46,5 +46,6 @@ functions =
       return @parseEvent v
   parseDirection : (v) -> v
   parseOperateVariable : (v) -> OPERATE_TYPE[v]
+  parseTimer : (v) -> (v - v % 60) / 60 + '分' + (v % 60) + '秒'
 
 module.exports = functions

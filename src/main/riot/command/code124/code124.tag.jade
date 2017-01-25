@@ -1,8 +1,7 @@
 code124
   div タイマー操作
     | { opts.command.parameters[0] === 0 ? '始動' : '停止' }
-    | { (opts.command.parameters[1] - opts.command.parameters[1] % 60) / 60 } 分
-    | { opts.command.parameters[1] % 60 } 秒
+    | { parseTimer(opts.command.parameters[1]) }
 
   style(scoped,type='less')
     include code124.less
