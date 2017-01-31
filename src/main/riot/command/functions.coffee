@@ -46,6 +46,15 @@ functions =
       return @parseEvent v
   parseDirection : (v) -> v
   parseOperateVariable : (v) -> OPERATE_TYPE[v]
+  parseOperateValue : (operation, operandType, operand) ->
+    if operandType == 0
+      operand
+    else
+      operand = @parseVariableId(operand)
+    if operation == 0
+      "+ #{operand}"
+    else
+      "- #{operand}"
   parseTimer : (v) -> (v - v % 60) / 60 + '分' + (v % 60) + '秒'
 
 module.exports = functions
