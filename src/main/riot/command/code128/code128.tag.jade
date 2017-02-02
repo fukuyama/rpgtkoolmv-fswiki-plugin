@@ -1,5 +1,7 @@
 code128
-  div code128
+  div 防具の増減 :
+    | { parseArmor(opts.command.parameters[0]) }
+    | { parseOperateValue(opts.command.parameters[1], opts.command.parameters[2], opts.command.parameters[3]) }
 
   style(scoped,type='less')
     include code128.less

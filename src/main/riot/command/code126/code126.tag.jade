@@ -1,5 +1,7 @@
 code126
-  div code126
+  div アイテムの増減 :
+    | { parseItem(opts.command.parameters[0]) }
+    | { parseOperateValue(opts.command.parameters[1], opts.command.parameters[2], opts.command.parameters[3]) }
 
   style(scoped,type='less')
     include code126.less
