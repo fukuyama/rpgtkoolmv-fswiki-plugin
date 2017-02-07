@@ -1,4 +1,6 @@
 # code311.coffee
 
-#@on 'update', (e) ->
+@mixin require '../functions.coffee'
+
+#@on 'mount', (e) ->
 #  console.log 'code311',@opts,e

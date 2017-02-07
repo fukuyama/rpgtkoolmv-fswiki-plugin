@@ -1,8 +1,22 @@
 code311
-  div code311
+  div HPの増減 :
+    selectActor(
+      select-type="opts.command.parameters[2]"
+      value="{ opts.command.parameters[3] }"
+    )
+    span { parseOperateValue(opts.command.parameters[2], opts.command.parameters[3], opts.command.parameters[4]) }
+    span { opts.command.parameters[5] }
 
   style(scoped,type='less')
     include code311.less
 
   script(type='coffee')
     include code311.coffee
+
+
+selectActor
+  span 000 { opts.selectType }
+
+  script(type='coffee')
+    | @on 'mount', (e) ->
+    |  console.log 'selectActor',@opts,e
