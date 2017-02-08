@@ -15,7 +15,7 @@ code311
 
 
 selectActor
-  span 000 { opts.selectType }
+  span { opts.selectType ? '固定' : '変数' }
 
   script(type='coffee')
     | @on 'mount', (e) ->
