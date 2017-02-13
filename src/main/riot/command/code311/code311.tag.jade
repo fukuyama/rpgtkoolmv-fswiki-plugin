@@ -1,8 +1,8 @@
 code311
   div HPの増減 :
     selectActor(
-      select-type="opts.command.parameters[2]"
-      value="{ opts.command.parameters[3] }"
+      select-type="{ opts.command.parameters[0] }"
+      num="{ opts.command.parameters[1] }"
     )
     span { parseOperateValue(opts.command.parameters[2], opts.command.parameters[3], opts.command.parameters[4]) }
     span { opts.command.parameters[5] }
@@ -15,8 +15,10 @@ code311
 
 
 selectActor
-  span { opts.selectType ? '固定' : '変数' }
+  span { opts.selectType == 0 ? '固定' : '変数' }
+  span(if="{ opts.selectType == 0 }") { parseActor(opts.num) }
 
   script(type='coffee')
+    | @mixin require '../functions.coffee'
     | @on 'mount', (e) ->
     |  console.log 'selectActor',@opts,e
