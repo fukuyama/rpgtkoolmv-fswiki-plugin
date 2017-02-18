@@ -1,7 +1,9 @@
 event-commands
   div
     virtual(each='{ command, i in opts.page.list }')
-      span(class='s{ i }',class='i{ command.indent }')
+      span
+        span(if="{ debug }") { command.code }
+        span(class='s{ i }',class='i{ command.indent }')
 
   style(scoped,type='less')
     include event-commands.less

@@ -1,5 +1,10 @@
 code129
-  div パーティの増減 : 
+  div メンバーの入れ替え :
+    actor-name(actor-id="{ opts.command.parameters[0] }")
+    span(if="{ opts.command.parameters[1] == 0 }")
+      span を加える
+      span(if="{ opts.command.parameters[2] }") 初期化
+    span(if="{ opts.command.parameters[1] != 0 }") を外す
 
   style(scoped,type='less')
     include code129.less
