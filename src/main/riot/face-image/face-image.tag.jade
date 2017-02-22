@@ -1,0 +1,9 @@
+face-image face-image
+  span(if="{ opts.name === '' }") なし
+  span(if="{ opts.name !== '' }") { opts.ame }[{ opts.index }]
+
+  style(scoped,type='less')
+    include face-image.less
+
+  script(type='coffee')
+    include face-image.coffee

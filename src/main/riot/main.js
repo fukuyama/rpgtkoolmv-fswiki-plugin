@@ -34,6 +34,8 @@ import './move-frequency/move-frequency.tag.jade'
 import './event-commands/event-commands.tag.jade'
 //import './event-command/event-command.tag.jade'
 
+import './face-image/face-image.tag.jade'
+
 import './command/code0/code0.tag.jade'
 
 import './command/code101/code101.tag.jade'
