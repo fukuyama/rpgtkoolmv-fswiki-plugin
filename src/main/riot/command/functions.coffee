@@ -3,7 +3,6 @@
 util = require '../mixin.coffee'
 
 WINDOW_CONFIG  = ['ウィンドウ','暗くする','透明']
-WINDOW_V_POS   = ['上','中','下']
 WINDOW_H_POS   = ['左','中','右']
 SELECT_LIST    = ['選択肢#1','選択肢#2','選択肢#3','選択肢#4','選択肢#5','選択肢#6']
 SELECT_DEFAULT = ['なし'].concat SELECT_LIST

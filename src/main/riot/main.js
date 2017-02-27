@@ -36,6 +36,7 @@ import './event-commands/event-commands.tag.jade'
 
 import './face-image/face-image.tag.jade'
 import './window-config/window-config.tag.jade'
+import './window-vertical/window-vertical.tag.jade'
 
 import './command/code0/code0.tag.jade'
 

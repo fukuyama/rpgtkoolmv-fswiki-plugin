@@ -2,7 +2,7 @@ code101
   div 文章
     face-image(name="{ opts.command.parameters[0] }",index="{ opts.command.parameters[1] }")
     window-config(bg="{ opts.command.parameters[2] }")
-    | { parseWindowVertical(opts.command.parameters[3]) }
+    window-vertical(pos="{ opts.command.parameters[3] }")
 
   style(scoped,type='less')
     include code101.less
