@@ -24,6 +24,8 @@ import './event-page-actor/event-page-actor.tag.jade'
 import './switch-name/switch-name.tag.jade'
 import './item-name/item-name.tag.jade'
 import './actor-name/actor-name.tag.jade'
+import './cancel-type/cancel-type.tag.jade'
+import './select-default/select-default.tag.jade'
 
 import './move-default/move-default.tag.jade'
 import './move-type/move-type.tag.jade'
@@ -37,6 +39,7 @@ import './event-commands/event-commands.tag.jade'
 import './face-image/face-image.tag.jade'
 import './window-config/window-config.tag.jade'
 import './window-vertical/window-vertical.tag.jade'
+import './window-horizontal/window-horizontal.tag.jade'
 
 import './command/code0/code0.tag.jade'
 
