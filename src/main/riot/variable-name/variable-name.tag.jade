@@ -1,0 +1,8 @@
+variable-name
+  span { variables(opts.variableId) }[{ pad(opts.variableId,4) }]
+
+  style(scoped,type='less')
+    include variable-name.less
+
+  script(type='coffee')
+    include variable-name.coffee
