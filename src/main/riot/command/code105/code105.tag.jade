@@ -1,7 +1,7 @@
 code105
   div 文章スクロール
-    | 速度 { opts.command.parameters[0] }
-    | 早送り { parseBoolean(opts.command.parameters[1],'なし','あり') }
+    span 速度[{ opts.command.parameters[0] }]
+    span 早送り[{ opts.command.parameters[1] ? 'なし' : 'あり' }]
 
   style(scoped,type='less')
     include code105.less

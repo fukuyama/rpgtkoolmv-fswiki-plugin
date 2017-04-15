@@ -1,7 +1,7 @@
 code104
   div アイテムの選択
-    | { parseVariableId(opts.command.parameters[0]) }
-    | { parseItemType(opts.command.parameters[1] - 1) }
+    variable-name(variable-id="{ opts.command.parameters[0] }")
+    item-type(type="{ opts.command.parameters[1] }")
 
   style(scoped,type='less')
     include code104.less

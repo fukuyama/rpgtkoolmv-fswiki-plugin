@@ -1,6 +1,9 @@
 code111
-  div 分岐
-    | { conditional(opts.command) }
+  div 分岐 type=[{ opts.command.parameters[0] }]
+    span(if="{ opts.command.parameters[0] == 0 }")
+      switch-name(switch-id="{ opts.command.parameters[1] }")
+    span(if="{ opts.command.parameters[0] == 1 }")
+    span(if="{ opts.command.parameters[0] == 2 }")
 
   style(scoped,type='less')
     include code111.less
