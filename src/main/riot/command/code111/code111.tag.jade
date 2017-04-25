@@ -3,6 +3,15 @@ code111
     span(if="{ opts.command.parameters[0] == 0 }")
       switch-name(switch-id="{ opts.command.parameters[1] }")
     span(if="{ opts.command.parameters[0] == 1 }")
+      span 変数
+      span(if="{ opts.command.parameters[4] == 1 }")
+        variable-name(variable-id="{ opts.command.parameters[1] }")
+        code111-variable2(type="{ opts.command.parameters[2] }",variable-id="{ opts.command.parameters[3] }")
+      span(if="{ opts.command.parameters[4] == 2 }")
+      span(if="{ opts.command.parameters[4] == 3 }")
+      span(if="{ opts.command.parameters[4] == 4 }")
+      span(if="{ opts.command.parameters[4] == 5 }")
+
     span(if="{ opts.command.parameters[0] == 2 }")
 
   style(scoped,type='less')
@@ -10,3 +19,9 @@ code111
 
   script(type='coffee')
     include code111.coffee
+
+code111-variable2
+  span(if="{ opts.type == 0 }")
+    span { opts.value }
+  span(if="{ opts.type != 0 }")
+    variable-name(variable-id="{ opts.variableId }")
