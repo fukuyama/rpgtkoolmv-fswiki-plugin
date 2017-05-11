@@ -1,10 +1,11 @@
 code111
   div 分岐 type=[{ opts.command.parameters[0] }]
-    virtual(if="{ opts.command.parameters[0] == 0 }")
-      switch-name(switch-id="{ opts.command.parameters[1] }")
-    virtual(if="{ opts.command.parameters[0] == 1 }")
-
-    code111-selfswitch(if="{ opts.command.parameters[0] == 2 }",name="{ opts.command.parameters[1] }")
+  virtual(if="{ opts.command.parameters[0] == 0 }")
+    switch-name(switch-id="{ opts.command.parameters[1] }")
+  virtual(if="{ opts.command.parameters[0] == 1 }")
+    code111-variable(type="{ opts.command.parameters[4] }",variable1="{ opts.command.parameters[1] }",variable2="{ opts.command.parameters[3] }",variable-type="{ opts.command.parameters[2] }")
+  virtual(if="{ opts.command.parameters[0] == 2 }")
+    code111-selfswitch(name="{ opts.command.parameters[1] }")
 
   style(scoped,type='less')
     include code111.less
@@ -20,36 +21,15 @@ code111-variable2
 
 code111-variable
   span 変数 type=[{ opts.type }]
-    virtual(if="{ opts.type == 0 }")
-      variable-name(variable-id="{ opts.variable1 }")
-      | が
-      code111-variable2(type="{ opts.command.parameters[2] }",variable="{ opts.variable2 }")
-      | と等しい
-    virtual(if="{ opts.type == 1 }")
-      variable-name(variable-id="{ opts.variable1 }")
-      | が
-      code111-variable2(type="{ opts.command.parameters[2] }",variable="{ opts.variable2 }")
-      | 以上
-    virtual(if="{ opts.type == 2 }")
-      variable-name(variable-id="{ opts.variable1 }")
-      | が
-      code111-variable2(type="{ opts.command.parameters[2] }",variable="{ opts.variable2 }")
-      | 以下
-    virtual(if="{ opts.type == 3 }")
-      variable-name(variable-id="{ opts.variable1 }")
-      | が
-      code111-variable2(type="{ opts.command.parameters[2] }",variable="{ opts.variable2 }")
-      | より大きい
-    virtual(if="{ opts.type == 4 }")
-      variable-name(variable-id="{ opts.variable1 }")
-      | が
-      code111-variable2(type="{ opts.command.parameters[2] }",variable="{ opts.variable2 }")
-      | より小さい
-    virtual(if="{ opts.type == 5 }")
-      variable-name(variable-id="{ opts.variable1 }")
-      | が
-      code111-variable2(type="{ opts.command.parameters[2] }",variable="{ opts.variable2 }")
-      | と等しくない
+  variable-name(variable-id="{ opts.variable1 }")
+  | が
+  code111-variable2(type="{ opts.variableType }",variable="{ opts.variable2 }")
+  virtual(if="{ opts.type == 0 }") と等しい
+  virtual(if="{ opts.type == 1 }") 以上
+  virtual(if="{ opts.type == 2 }") 以下
+  virtual(if="{ opts.type == 3 }") より大きい
+  virtual(if="{ opts.type == 4 }") より小さい
+  virtual(if="{ opts.type == 5 }") と等しくない
 
 code111-selfswitch
   span セルフスイッチ { opts.name }
